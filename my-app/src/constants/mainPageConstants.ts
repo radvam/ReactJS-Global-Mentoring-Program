@@ -24,3 +24,6 @@ export const BUTTON_CLOSE = "x";
 
 //Error boundary
 export const ERROR_BOUNDARY_MESSAGE = "Something went wrong.";
+
+//Content not found
+export const NO_MOVIE_FOUND = 'No Movie Found';
