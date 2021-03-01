@@ -8,10 +8,10 @@ import cardListData from "./utils/MainContentUtils";
 
 import { MainContentWrapper } from "./MainContent.style";
 
-export const MainContent = () => (
+export const MainContent = (): React.ReactElement => (
   <MainContentWrapper>
     <NavBar />
-    <FilmsCounter count={cardListData.length}/>
+    <FilmsCounter count={cardListData.length} />
     <CardList cardListData={cardListData} />
   </MainContentWrapper>
 );

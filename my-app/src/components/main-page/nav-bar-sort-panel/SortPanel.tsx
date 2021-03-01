@@ -11,10 +11,10 @@ import {
   SelectOption,
 } from "./SortPanel.style";
 
-export const SortPanel = () => {
+export const SortPanel = (): React.ReactElement => {
   const [topArrow, setTopArrow] = useState(true);
 
-  const onClickSelect = () => {
+  const onClickSelect = (): void => {
     setTopArrow(!topArrow);
   };
 

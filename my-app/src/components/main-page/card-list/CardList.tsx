@@ -6,7 +6,9 @@ import { CardListProps } from "./CardList.interface";
 
 import { CardListWrapper } from "./CardList.style";
 
-export const CardList: FC<CardListProps> = ({ cardListData }) => (
+export const CardList: FC<CardListProps> = ({
+  cardListData,
+}): React.ReactElement => (
   <CardListWrapper>
     {cardListData.map(({ id, name, date, imageSrc, genres }) => (
       <CardListItem

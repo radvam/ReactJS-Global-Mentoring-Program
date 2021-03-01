@@ -4,7 +4,7 @@ import filterData from "./utils/FilterPanelUtils";
 
 import { FilterPanelWrapper, FilterItem } from "./FilterPanel.style";
 
-export const FilterPanel = () => {
+export const FilterPanel = (): React.ReactElement => {
   const [currentTab, setCurrentTab] = useState("1");
 
   const onClickFilterItem = (e: Record<string, any>): void => {

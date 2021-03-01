@@ -6,7 +6,7 @@ import { MainContent } from "../../components/main-page/main-content/MainContent
 
 import { MainPageWrapper } from "./MainPage.style";
 
-export const MainPage = () => {
+export const MainPage = (): React.ReactElement => {
   return (
     <MainPageWrapper>
       <Header />

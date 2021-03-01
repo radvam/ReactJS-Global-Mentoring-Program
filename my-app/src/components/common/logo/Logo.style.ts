@@ -1,4 +1,4 @@
-import { styled, theme } from "../../../../theme";
+import { styled, theme } from "../../../theme";
 
 export const LogoWrapper = styled.div`
   display: flex;

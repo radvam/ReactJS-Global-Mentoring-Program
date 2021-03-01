@@ -29,23 +29,23 @@ export const CardListItem: FC<CardListItemProps> = ({
   date,
   genres,
   imageSrc,
-}) => {
+}): React.ReactElement => {
   const [showOpen, setShowOpen] = useState(false);
   const [showPanel, setShowPanel] = useState(false);
 
-  const onMouseOverPosterHandler = ():void => {
+  const onMouseOverPosterHandler = (): void => {
     setShowOpen(true);
   };
 
-  const onMouseOutPosterHandler = ():void => {
+  const onMouseOutPosterHandler = (): void => {
     setShowOpen(false);
   };
 
-  const onClickCloseHandler = ():void => {
+  const onClickCloseHandler = (): void => {
     setShowPanel(false);
   };
 
-  const onClickOpenHandler = ():void => {
+  const onClickOpenHandler = (): void => {
     setShowPanel(true);
   };
 

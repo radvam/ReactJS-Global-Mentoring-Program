@@ -5,7 +5,7 @@ import { SortPanel } from "../nav-bar-sort-panel/SortPanel";
 
 import { NavBarWrapper } from "./NavBar.style";
 
-export const NavBar = () => (
+export const NavBar = (): React.ReactElement => (
   <NavBarWrapper>
     <FilterPanel />
     <SortPanel />

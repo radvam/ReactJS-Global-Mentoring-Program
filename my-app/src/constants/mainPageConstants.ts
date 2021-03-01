@@ -19,5 +19,8 @@ export const FILMS_COUNTER_TEXT = " movies found";
 //Poster
 export const BUTTON_EDIT = "Edit";
 export const BUTTON_DELETE = "Delete";
-export const BUTTON_OPEN = '...';
-export const BUTTON_CLOSE = 'x';
+export const BUTTON_OPEN = "...";
+export const BUTTON_CLOSE = "x";
+
+//Error boundary
+export const ERROR_BOUNDARY_MESSAGE = "Something went wrong.";

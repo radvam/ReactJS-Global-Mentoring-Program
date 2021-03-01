@@ -14,7 +14,7 @@ import {
   SearchPanelButton,
 } from "./SearchPanel.style";
 
-export const SearchPanel = () => (
+export const SearchPanel = (): React.ReactElement => (
   <SearchPanelWrapper>
     <SearchPanelHeader>{SEARCH_PANEL_HEADER}</SearchPanelHeader>
     <SearchPanelControl>
