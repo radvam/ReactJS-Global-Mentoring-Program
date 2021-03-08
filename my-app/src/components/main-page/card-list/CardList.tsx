@@ -12,6 +12,7 @@ export const CardList: FC<CardListProps> = ({
   <CardListWrapper>
     {cardListData.map(({ id, name, date, imageSrc, genres }) => (
       <CardListItem
+        id={id}
         key={id}
         name={name}
         date={date}

@@ -1,6 +1,6 @@
 import { styled, theme } from "../../../theme";
 
-import { CardEditPanelProps, ButtonOpenProps } from "./CardListItem.interface";
+import { ButtonOpenProps } from "./CardListItem.interface";
 
 export const CardListItemWrapper = styled.div`
   width: 320px;
@@ -60,64 +60,6 @@ export const CardGenre = styled.div`
   letter-spacing: 0.8px;
   color: ${theme.colors.white + theme.transparency["60"]};
   text-align: left;
-`;
-
-export const CardEditPanel = styled.div<CardEditPanelProps>`
-  display: ${({ showPanel }) => (showPanel ? `flex` : "none")};
-  flex-direction: column;
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  grid-row: 1 / -1;
-  grid-column: 1 / -1;
-  width: 190px;
-  height: 110px;
-  border-radius: 4px;
-  background-color: ${theme.colors.dark};
-  z-index: 3;
-
-  color: ${theme.colors.white};
-  font-family: "Lato-Light", sans-serif;
-  font-size: 17px;
-  line-height: 35px;
-  letter-spacing: 0.8px;
-`;
-
-export const ButtonCLose = styled.div`
-  align-self: flex-end;
-  font-size: 20px;
-  line-height: 25px;
-  height: 26%;
-  text-align: center;
-  border-radius: 5px;
-  width: 30px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${theme.mainColor};
-  }
-`;
-
-export const ButtonEdit = styled.div`
-  padding-left: 30px;
-  text-align: left;
-  height: 32%;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${theme.mainColor};
-  }
-`;
-
-export const ButtonDelete = styled.div`
-  padding-left: 30px;
-  height: 32%;
-  text-align: left;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${theme.mainColor};
-  }
 `;
 
 export const ButtonOpen = styled.div<ButtonOpenProps>`

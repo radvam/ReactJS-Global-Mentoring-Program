@@ -1,12 +1,11 @@
 import React, { FC, useState } from "react";
 
+import { CardEditPanel } from "../card-edit-panel/CardEditPanel";
+
 import { CardListItemProps } from "./CardListItem.interface";
 
 import {
-  BUTTON_EDIT,
-  BUTTON_DELETE,
   BUTTON_OPEN,
-  BUTTON_CLOSE,
 } from "../../../constants/mainPageConstants";
 
 import {
@@ -17,14 +16,11 @@ import {
   CardGenre,
   CardName,
   CardDate,
-  CardEditPanel,
-  ButtonCLose,
-  ButtonEdit,
-  ButtonDelete,
   ButtonOpen,
 } from "./CardListItem.style";
 
 export const CardListItem: FC<CardListItemProps> = ({
+  id,
   name,
   date,
   genres,
@@ -50,28 +46,29 @@ export const CardListItem: FC<CardListItemProps> = ({
   };
 
   return (
-    <CardListItemWrapper>
-      <CardImageBlock
-        onMouseOver={onMouseOverPosterHandler}
-        onMouseOut={onMouseOutPosterHandler}
-      >
-        <ButtonOpen showOpen={showOpen} onClick={onClickOpenHandler}>
-          {BUTTON_OPEN}
-        </ButtonOpen>
-        <CardEditPanel showPanel={showPanel}>
-          <ButtonCLose onClick={onClickCloseHandler}>
-            {BUTTON_CLOSE}
-          </ButtonCLose>
-          <ButtonEdit>{BUTTON_EDIT}</ButtonEdit>
-          <ButtonDelete>{BUTTON_DELETE}</ButtonDelete>
-        </CardEditPanel>
-        <CardImage src={imageSrc} alt="image" />
-      </CardImageBlock>
-      <CardTitle>
-        <CardName>{name}</CardName>
-        <CardDate>{date}</CardDate>
-      </CardTitle>
-      <CardGenre>{genres}</CardGenre>
-    </CardListItemWrapper>
+    <>
+      <CardListItemWrapper>
+        <CardImageBlock
+          onMouseOver={onMouseOverPosterHandler}
+          onMouseOut={onMouseOutPosterHandler}
+        >
+          <ButtonOpen showOpen={showOpen} onClick={onClickOpenHandler}>
+            {BUTTON_OPEN}
+          </ButtonOpen>
+          <CardEditPanel
+            id={id}
+            name={name}
+            showPanel={showPanel}
+            onClickCloseHandler={onClickCloseHandler}
+          />
+          <CardImage src={imageSrc} alt="image" />
+        </CardImageBlock>
+        <CardTitle>
+          <CardName>{name}</CardName>
+          <CardDate>{date}</CardDate>
+        </CardTitle>
+        <CardGenre>{genres}</CardGenre>
+      </CardListItemWrapper>
+    </>
   );
 };

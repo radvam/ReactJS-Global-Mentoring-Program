@@ -26,4 +26,22 @@ export const BUTTON_CLOSE = "x";
 export const ERROR_BOUNDARY_MESSAGE = "Something went wrong.";
 
 //Content not found
-export const NO_MOVIE_FOUND = 'No Movie Found';
+export const NO_MOVIE_FOUND = "No Movie Found";
+
+//Modal
+export const MODAL_WIDTH = 550;
+
+//Modal add
+export const MODAL_ADD_MOVIE_TITLE = "Add movie";
+export const MODAL_ADD_BUTTON_OK = 'Submit';
+export const MODAL_ADD_BUTTON_CANCEL = 'Reset';
+
+//Modal edit
+export const MODAL_EDIT_MOVIE_TITLE = "Edit movie";
+export const MODAL_EDIT_BUTTON_OK = 'Save';
+export const MODAL_EDIT_BUTTON_CANCEL = 'Reset';
+
+//Modal delete
+export const MODAL_DELETE_MOVIE_TITLE = "Delete movie";
+export const MODAL_DELETE_BUTTON_OK = 'Confirm';
+export const MODAL_DELETE_TEXT = 'Are you sure you want to delete this movie?';
