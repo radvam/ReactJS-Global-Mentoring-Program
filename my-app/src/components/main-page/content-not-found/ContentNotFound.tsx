@@ -7,12 +7,10 @@ import {
   ContentNotFoundText,
 } from "./ContentNotFound.style";
 
-export default class ContentNotFound extends React.Component {
-  render(): React.ReactElement {
-    return (
-      <ContentNotFoundWrapper>
-        <ContentNotFoundText>{NO_MOVIE_FOUND}</ContentNotFoundText>
-      </ContentNotFoundWrapper>
-    );
-  }
-}
+export const ContentNotFound = (): React.ReactElement => {
+  return (
+    <ContentNotFoundWrapper>
+      <ContentNotFoundText>{NO_MOVIE_FOUND}</ContentNotFoundText>
+    </ContentNotFoundWrapper>
+  );
+};

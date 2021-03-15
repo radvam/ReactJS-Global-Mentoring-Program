@@ -12,7 +12,7 @@ export const LogoWrapper = styled.div`
 
 export const ParagraphFirst = styled.p`
   font-family: 'PassionOne-Bold', sans-serif;
-  line-height: 33px;
+  line-height: 37px;
   letter-spacing: 0.7px;
   font-size: 23px;
   margin: 0;

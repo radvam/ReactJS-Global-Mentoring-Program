@@ -1,9 +1,7 @@
+import { Card } from "../main-content/MainContent.interface";
+
 export interface CardListItemProps {
-  id: number;
-  name: string;
-  genres: string;
-  date: string;
-  imageSrc: string;
+  card: Card;
 }
 
 export interface ButtonOpenProps {

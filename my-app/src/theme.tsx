@@ -1,13 +1,14 @@
 import baseStyled, { ThemedStyledInterface } from "styled-components";
 
 export const theme = {
-  mainColor: '#F65261',
+  mainColor: "#F65261",
   colors: {
     dark: "#232323",
     darkGrey: "#424242",
     lightGrey: "#555555",
     white: "#FFFFFF",
-    black: '#000000',
+    black: "#000000",
+    green: "#9ae079",
   },
   transparency: {
     0: "00",

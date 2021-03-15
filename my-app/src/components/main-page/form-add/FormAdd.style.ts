@@ -5,7 +5,11 @@ export const FormAddWrapper = styled.div`
   row-gap: 20px;
 `;
 
-export const FormItem = styled.div``;
+export const FormItem = styled.div`
+  .ant-input-number {
+    width: 100%;
+  }
+`;
 
 export const Title = styled.p`
   font-family: "Lato-Regular", sans-serif;

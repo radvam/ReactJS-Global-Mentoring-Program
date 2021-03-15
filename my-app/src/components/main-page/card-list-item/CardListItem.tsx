@@ -1,12 +1,13 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useMemo, useCallback } from "react";
+import { Link } from "react-router-dom";
 
 import { CardEditPanel } from "../card-edit-panel/CardEditPanel";
 
+import { transformArrayToString } from "../../../commonUtils/transformArrayToString";
+
 import { CardListItemProps } from "./CardListItem.interface";
 
-import {
-  BUTTON_OPEN,
-} from "../../../constants/mainPageConstants";
+import { BUTTON_OPEN } from "../../../constants/mainPageConstants";
 
 import {
   CardListItemWrapper,
@@ -20,14 +21,18 @@ import {
 } from "./CardListItem.style";
 
 export const CardListItem: FC<CardListItemProps> = ({
-  id,
-  name,
-  date,
-  genres,
-  imageSrc,
+  card,
 }): React.ReactElement => {
+  const { id, title, release_date, genres, poster_path } = card;
   const [showOpen, setShowOpen] = useState(false);
   const [showPanel, setShowPanel] = useState(false);
+
+  const movieGenres = useMemo(() => transformArrayToString(genres), [genres]);
+  const movieRealiseDate = useMemo(() => release_date.slice(0, 4), [release_date]);
+
+  const toggleShowPanel = useCallback(() => {
+    setShowPanel(!showPanel);
+  }, [showPanel]);
 
   const onMouseOverPosterHandler = (): void => {
     setShowOpen(true);
@@ -37,38 +42,31 @@ export const CardListItem: FC<CardListItemProps> = ({
     setShowOpen(false);
   };
 
-  const onClickCloseHandler = (): void => {
-    setShowPanel(false);
-  };
-
-  const onClickOpenHandler = (): void => {
-    setShowPanel(true);
-  };
-
   return (
-    <>
-      <CardListItemWrapper>
-        <CardImageBlock
-          onMouseOver={onMouseOverPosterHandler}
-          onMouseOut={onMouseOutPosterHandler}
-        >
-          <ButtonOpen showOpen={showOpen} onClick={onClickOpenHandler}>
-            {BUTTON_OPEN}
-          </ButtonOpen>
-          <CardEditPanel
-            id={id}
-            name={name}
-            showPanel={showPanel}
-            onClickCloseHandler={onClickCloseHandler}
-          />
-          <CardImage src={imageSrc} alt="image" />
-        </CardImageBlock>
-        <CardTitle>
-          <CardName>{name}</CardName>
-          <CardDate>{date}</CardDate>
-        </CardTitle>
-        <CardGenre>{genres}</CardGenre>
-      </CardListItemWrapper>
-    </>
+    <CardListItemWrapper>
+      <CardImageBlock
+        onMouseOver={onMouseOverPosterHandler}
+        onMouseOut={onMouseOutPosterHandler}
+      >
+        <ButtonOpen showOpen={showOpen} onClick={toggleShowPanel}>
+          {BUTTON_OPEN}
+        </ButtonOpen>
+        <CardEditPanel
+          card={card}
+          showPanel={showPanel}
+          toggleShowPanel={toggleShowPanel}
+        />
+        <Link to={`/movie/${id}`}>
+          <CardImage src={poster_path} alt="image" />
+        </Link>
+      </CardImageBlock>
+      <CardTitle>
+        <Link to={`/movie/${id}`}>
+          <CardName>{title}</CardName>
+        </Link>
+        <CardDate>{movieRealiseDate}</CardDate>
+      </CardTitle>
+      <CardGenre>{movieGenres}</CardGenre>
+    </CardListItemWrapper>
   );
 };

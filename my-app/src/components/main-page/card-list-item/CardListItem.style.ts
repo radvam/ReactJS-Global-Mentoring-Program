@@ -38,6 +38,10 @@ export const CardName = styled.p`
   letter-spacing: 0.5px;
   font-size: 19px;
   margin: 0;
+
+  &:hover {
+    color: ${theme.mainColor};
+  }
 `;
 
 export const CardDate = styled.p`

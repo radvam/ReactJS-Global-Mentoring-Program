@@ -1,4 +1,4 @@
+import { Card } from "../main-content/MainContent.interface";
 export interface FormEditProps {
-  id: number;
-  name: string;
+  card: Card;
 }

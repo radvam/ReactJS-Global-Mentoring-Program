@@ -1,14 +1,12 @@
-import React from "react";
-import { Link } from 'react-router-dom';
+import React, { FC } from "react";
+import { Link } from "react-router-dom";
 
-export default class NotFoundPage extends React.Component {
-  render(): React.ReactElement {
-    return (
-      <>
-        <h1>Page Not Found</h1>
-        <div>404</div>
-        <Link to="/">GO BACK TO HOME</Link>
-      </>
-    );
-  }
-}
+import { NotFoundPageWrapper } from "./NotFoundPage.style";
+
+export const NotFoundPage: FC = (): React.ReactElement => (
+  <NotFoundPageWrapper>
+    <h1>Page Not Found</h1>
+    <h2>404</h2>
+    <Link to="/">GO BACK TO HOME</Link>
+  </NotFoundPageWrapper>
+);

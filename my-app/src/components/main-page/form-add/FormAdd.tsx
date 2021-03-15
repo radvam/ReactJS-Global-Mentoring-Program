@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Input, Select, DatePicker } from "antd";
+import { Input, InputNumber, Select, DatePicker } from "antd";
 
-import { SelectGenresData } from "./utils/FormAddUtils";
+import { selectGenresData } from "./utils/FormAddUtils";
 import { TagRender } from "./utils/TagRender";
 
 import { FormAddWrapper, FormItem, Title } from "./FormAdd.style";
@@ -12,15 +12,15 @@ export const FormAdd = (): React.ReactElement => {
     <FormAddWrapper>
       <FormItem>
         <Title>Title</Title>
-        <Input placeholder="Enter a title" />
+        <Input placeholder="Enter a title" size={"large"} />
       </FormItem>
       <FormItem>
         <Title>Release date</Title>
-        <DatePicker style={{ width: "100%" }} />
+        <DatePicker style={{ width: "100%" }} size={"large"} />
       </FormItem>
       <FormItem>
         <Title>Movie url</Title>
-        <Input placeholder="Movie URL here" />
+        <Input placeholder="Movie URL here" size={"large"} />
       </FormItem>
       <FormItem>
         <Title>Genre</Title>
@@ -30,16 +30,22 @@ export const FormAdd = (): React.ReactElement => {
           showArrow
           tagRender={TagRender}
           style={{ width: "100%" }}
-          options={SelectGenresData}
+          options={selectGenresData}
+          size={"large"}
         />
       </FormItem>
       <FormItem>
         <Title>Overview</Title>
-        <Input placeholder="Overview here" />
+        <Input.TextArea
+          placeholder="Overview here"
+          size={"large"}
+          rows={1}
+          maxLength={500}
+        />
       </FormItem>
       <FormItem>
         <Title>Runtime</Title>
-        <Input placeholder="Runtime here" />
+        <InputNumber placeholder="Runtime here" size={"large"} min={0} />
       </FormItem>
     </FormAddWrapper>
   );

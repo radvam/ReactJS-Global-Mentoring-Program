@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 
 import { Modal } from "../../common/modal/Modal";
-import FormEdit from "../form-edit/FormEdit";
+import { FormEdit } from "../form-edit/FormEdit";
 
 import {
   BUTTON_EDIT,
@@ -26,22 +26,21 @@ import {
 } from "./CardEditPanel.style";
 
 export const CardEditPanel: FC<CardEditPanelProps> = ({
-  id,
-  name,
+  card,
   showPanel,
-  onClickCloseHandler,
+  toggleShowPanel,
 }): React.ReactElement => {
   const [openEditModal, setOpenEditModal] = useState(false);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
 
   const onClickEditHandler = (): void => {
     setOpenEditModal(true);
-    onClickCloseHandler();
+    toggleShowPanel();
   };
 
   const onClickDeleteHandler = (): void => {
     setOpenDeleteModal(true);
-    onClickCloseHandler();
+    toggleShowPanel();
   };
 
   return (
@@ -53,7 +52,7 @@ export const CardEditPanel: FC<CardEditPanelProps> = ({
         okButtonText={MODAL_EDIT_BUTTON_OK}
         cancelButtonText={MODAL_EDIT_BUTTON_CANCEL}
       >
-        <FormEdit id={id} name={name} />
+        <FormEdit card={card} />
       </Modal>
       <Modal
         openModal={openDeleteModal}
@@ -63,7 +62,7 @@ export const CardEditPanel: FC<CardEditPanelProps> = ({
       >
         <DeleteModalParagraph>{MODAL_DELETE_TEXT}</DeleteModalParagraph>
       </Modal>
-      <ButtonCLose onClick={onClickCloseHandler}>{BUTTON_CLOSE}</ButtonCLose>
+      <ButtonCLose onClick={toggleShowPanel}>{BUTTON_CLOSE}</ButtonCLose>
       <ButtonEdit onClick={onClickEditHandler}>{BUTTON_EDIT}</ButtonEdit>
       <ButtonDelete onClick={onClickDeleteHandler}>
         {BUTTON_DELETE}

@@ -9,7 +9,7 @@ export const HeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 346px;
+  min-height: 346px;
   border-bottom: 10px solid ${theme.colors.lightGrey};
   padding: 20px 50px;
   backdrop-filter: blur(2px);
@@ -18,8 +18,10 @@ export const HeaderContainer = styled.div`
 export const HeaderTop = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   margin-bottom: 50px;
+  min-height: 46px;
 `;
 
 export const ButtonAddMovies = styled.div`

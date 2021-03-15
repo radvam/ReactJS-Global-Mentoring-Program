@@ -10,15 +10,8 @@ export const CardList: FC<CardListProps> = ({
   cardListData,
 }): React.ReactElement => (
   <CardListWrapper>
-    {cardListData.map(({ id, name, date, imageSrc, genres }) => (
-      <CardListItem
-        id={id}
-        key={id}
-        name={name}
-        date={date}
-        genres={genres}
-        imageSrc={imageSrc}
-      />
+    {cardListData.map((card) => (
+      <CardListItem key={card.id} card={card} />
     ))}
   </CardListWrapper>
 );
