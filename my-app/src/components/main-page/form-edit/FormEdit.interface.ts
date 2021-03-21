@@ -1,4 +1,5 @@
-import { Card } from "../main-content/MainContent.interface";
+import { Movie } from "../../../store/mainPage/state";
+
 export interface FormEditProps {
-  card: Card;
+  card: Movie;
 }

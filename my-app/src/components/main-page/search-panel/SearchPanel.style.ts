@@ -18,7 +18,7 @@ export const SearchPanelHeader = styled.p`
   margin: 0;
 `;
 
-export const SearchPanelControl = styled.div`
+export const SearchPanelControl = styled.form`
   display: flex;
   height: 57px;
 `;
@@ -32,7 +32,7 @@ export const SearchPanelInput = styled.input`
   padding-left: 20px;
   padding-right: 20px;
   color: ${theme.colors.white};
-  background-color: ${theme.colors.darkGrey + theme.transparency['95']};
+  background-color: ${theme.colors.darkGrey + theme.transparency["95"]};
   border: none;
   outline: none;
 `;
@@ -51,6 +51,6 @@ export const SearchPanelButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: ${theme.mainColor + theme.transparency['85']};
+    background-color: ${theme.mainColor + theme.transparency["85"]};
   }
 `;

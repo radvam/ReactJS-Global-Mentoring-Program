@@ -1,6 +1,6 @@
-import { Card } from "../components/main-page/main-content/MainContent.interface";
+import { Movie } from "../store/mainPage/state";
 
-const cardListData: Card[] = [
+const cardListData: Movie[] = [
   {
     id: 338970,
     title: "Tomb Raider",

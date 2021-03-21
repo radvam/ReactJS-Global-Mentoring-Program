@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 
 import { FormAdd } from "../form-add/FormAdd";
 import { Logo } from "../../common/logo/Logo";
@@ -13,6 +13,8 @@ import {
 
 import { Modal } from "../../common/modal/Modal";
 
+import { HeaderProps } from "./Header.interface";
+
 import {
   HeaderWrapper,
   HeaderContainer,
@@ -20,7 +22,9 @@ import {
   ButtonAddMovies,
 } from "./Header.style";
 
-export const Header = (): React.ReactElement => {
+export const Header: FC<HeaderProps> = ({
+  getMoviesDataRequest,
+}): React.ReactElement => {
   const [openModal, setOpenModal] = useState(false);
 
   return (
@@ -41,7 +45,7 @@ export const Header = (): React.ReactElement => {
             {ADD_MOVIE_BUTTON_NAME}
           </ButtonAddMovies>
         </HeaderTop>
-        <SearchPanel />
+        <SearchPanel getMoviesDataRequest={getMoviesDataRequest} />
       </HeaderContainer>
     </HeaderWrapper>
   );

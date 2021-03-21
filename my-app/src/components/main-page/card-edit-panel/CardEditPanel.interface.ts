@@ -1,8 +1,9 @@
-import { Card } from "../main-content/MainContent.interface";
+import { Movie } from "../../../store/mainPage/state";
+
 export interface CardEditPanelProps {
   showPanel: boolean;
   toggleShowPanel: () => void;
-  card: Card;
+  card: Movie;
 }
 
 export interface EditPanelWrapperProps {

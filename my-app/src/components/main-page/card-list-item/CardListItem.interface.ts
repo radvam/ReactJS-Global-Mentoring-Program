@@ -1,7 +1,7 @@
-import { Card } from "../main-content/MainContent.interface";
+import { Movie } from "../../../store/mainPage/state";
 
 export interface CardListItemProps {
-  card: Card;
+  card: Movie;
 }
 
 export interface ButtonOpenProps {

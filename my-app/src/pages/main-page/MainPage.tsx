@@ -1,16 +1,15 @@
 import React from "react";
 
-import { Header } from "../../components/main-page/header/Header";
 import { Footer } from "../../components/main-page/footer/Footer";
-import { MainContent } from "../../components/main-page/main-content/MainContent";
+import { MainContentConnected, HeaderConnected } from "./MainPageConnectors";
 
 import { MainPageWrapper } from "./MainPage.style";
 
 export const MainPage = (): React.ReactElement => {
   return (
     <MainPageWrapper>
-      <Header />
-      <MainContent />
+      <HeaderConnected />
+      <MainContentConnected />
       <Footer />
     </MainPageWrapper>
   );

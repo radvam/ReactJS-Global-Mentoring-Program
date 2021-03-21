@@ -1,5 +1,5 @@
-import { Card } from "./../main-content/MainContent.interface";
+import { Movie } from "../../../store/mainPage/state";
 
 export interface CardListProps {
-  cardListData: Card[];
+  cardListData: Movie[];
 }

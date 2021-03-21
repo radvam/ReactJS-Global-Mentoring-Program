@@ -1,10 +1,13 @@
 import React from "react";
+import { Provider } from "react-redux";
 import { Switch, Route } from "react-router-dom";
 
 import ErrorBoundary from "./components/common/error-boundary/ErrorBoundary";
 import { MainPage } from "./pages/main-page/MainPage";
 import { MovieDetailsPage } from "./pages/movie-details-page/MovieDetailsPage";
 import { NotFoundPage } from "./pages/not-found-page/NotFoundPage";
+
+import { store } from "./store/appState";
 
 import "antd/dist/antd.css";
 import "./App.css";
@@ -20,9 +23,11 @@ const Layout = (): React.ReactElement => (
 function App(): React.ReactElement {
   return (
     <div className="App">
-      <ErrorBoundary>
-        <Layout />
-      </ErrorBoundary>
+      <Provider store={store}>
+        <ErrorBoundary>
+          <Layout />
+        </ErrorBoundary>
+      </Provider>
     </div>
   );
 }
