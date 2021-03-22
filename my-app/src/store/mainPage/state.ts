@@ -17,4 +17,7 @@ export interface MainPageState {
   moviesLoading: boolean;
   moviesError: string;
   moviesData: Movie[];
+  filter: string;
+  sortDescending: boolean;
+  sortBy: string;
 }

@@ -6,6 +6,9 @@ export const mainPageInitialState: MainPageState = {
   moviesLoading: false,
   moviesError: "",
   moviesData: [],
+  filter: "all",
+  sortBy: "release date",
+  sortDescending: true,
 };
 
 export const mainPageReducer = (
@@ -31,6 +34,24 @@ export const mainPageReducer = (
         ...state,
         moviesData: action.moviesData.data,
         moviesLoading: false,
+      };
+    }
+    case actionTypes.SAVE_FILTER_VALUE: {
+      return {
+        ...state,
+        filter: action.value,
+      };
+    }
+    case actionTypes.SAVE_SORT_VALUE: {
+      return {
+        ...state,
+        sortBy: action.value,
+      };
+    }
+    case actionTypes.TOGGLE_SORT_ARROW: {
+      return {
+        ...state,
+        sortDescending: !state.sortDescending,
       };
     }
     default: {

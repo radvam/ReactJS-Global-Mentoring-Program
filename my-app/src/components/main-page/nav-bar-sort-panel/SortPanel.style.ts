@@ -1,8 +1,8 @@
 import { styled, theme } from "../../../theme";
 
-import { SortPanelWrapperProps } from "./SortPanel.interface";
+import {  ArrowProps } from "./SortPanel.interface";
 
-export const SortPanelWrapper = styled.div<SortPanelWrapperProps>`
+export const SortPanelWrapper = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -13,20 +13,21 @@ export const SortPanelWrapper = styled.div<SortPanelWrapperProps>`
   text-transform: uppercase;
   background-color: ${theme.colors.dark};
   min-width: 285px;
+  padding-right: 35px;
+`;
 
-  &::after {
-    content: "";
-    position: absolute;
-    ${({ topArrow }) => (topArrow ? `top: 6px` : `top: -1px`)};
-    right: 5px;
-    border: 6.5px solid transparent;
-    ${({ topArrow }) =>
-      topArrow
-        ? `border-top: 6.5px solid ${theme.mainColor}`
-        : `border-bottom: 6.5px solid ${theme.mainColor}`};
-    border-radius: 3px;
-    cursor: pointer;
-  }
+export const Arrow = styled.div<ArrowProps>`
+  position: absolute;
+  ${({ topArrow }) => (topArrow ? `top: 6px` : `top: 0px`)};
+  right: 10px;
+  border: 6.5px solid transparent;
+  ${({ topArrow }) =>
+    topArrow
+      ? `border-top: 6.5px solid ${theme.mainColor}`
+      : `border-bottom: 6.5px solid ${theme.mainColor}`};
+  border-radius: 3px;
+  margin: 5px;
+  cursor: pointer;
 `;
 
 export const SortPanelTitle = styled.p`
@@ -42,8 +43,8 @@ export const SortPanelSelect = styled.select`
   align-items: center;
   border: none;
   appearance: none;
-  padding-left: 15px;
-  padding-right: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
   font-size: 17px;
   letter-spacing: 1.1px;
   color: ${theme.colors.white};

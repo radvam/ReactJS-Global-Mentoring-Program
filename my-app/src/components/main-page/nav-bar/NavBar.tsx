@@ -1,13 +1,12 @@
 import React from "react";
 
-import { FilterPanel } from "../nav-bar-filter-panel/FilterPanel";
-import { SortPanel } from "../nav-bar-sort-panel/SortPanel";
+import { FilterPanelConnected, SortPanelConnected } from "../../../pages/main-page/MainPageConnectors";
 
 import { NavBarWrapper } from "./NavBar.style";
 
 export const NavBar = (): React.ReactElement => (
   <NavBarWrapper>
-    <FilterPanel />
-    <SortPanel />
+    <FilterPanelConnected />
+    <SortPanelConnected />
   </NavBarWrapper>
 );

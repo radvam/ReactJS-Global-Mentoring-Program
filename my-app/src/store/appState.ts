@@ -1,9 +1,9 @@
-import { Action, applyMiddleware, createStore } from 'redux';
-import thunk, { ThunkAction } from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { Action, applyMiddleware, createStore } from "redux";
+import thunk, { ThunkAction } from "redux-thunk";
+import { composeWithDevTools } from "redux-devtools-extension";
 
-import { rootReducer } from './rootReducer';
-import { MainPageState } from './mainPage/state';
+import { rootReducer } from "./rootReducer";
+import { MainPageState } from "./mainPage/state";
 
 export interface AppState {
   mainPage: MainPageState;
@@ -12,15 +12,18 @@ export interface AppState {
 const initialState: AppState = {
   mainPage: {
     moviesLoading: false,
-    moviesError: '',
+    moviesError: "",
     moviesData: [],
+    filter: "all",
+    sortBy: "release date",
+    sortDescending: true,
   },
 };
 
 export const store = createStore(
   rootReducer,
   initialState,
-  composeWithDevTools(applyMiddleware(thunk)),
+  composeWithDevTools(applyMiddleware(thunk))
 );
 
 export type AppThunk<ReturnType = void> = ThunkAction<

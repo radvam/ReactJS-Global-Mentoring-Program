@@ -14,10 +14,13 @@ export const MainContent: FC<MainContentProps> = ({
   getMoviesDataRequest,
   loading,
   movies,
+  filterValue,
+  sortValue,
+  sortOrder,
 }): React.ReactElement => {
   useEffect(() => {
     getMoviesDataRequest();
-  }, [getMoviesDataRequest]);
+  }, [getMoviesDataRequest, filterValue, sortValue, sortOrder]);
 
   return (
     <Spin spinning={loading} indicator={<Spinner />}>

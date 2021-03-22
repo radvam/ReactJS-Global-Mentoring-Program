@@ -27,12 +27,13 @@ export const CardImage = styled.img`
 export const CardTitle = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   color: ${theme.colors.white};
   padding: 20px 0 10px 0;
 `;
 
 export const CardName = styled.p`
+  text-align: left;
   font-family: "Lato-Regular", sans-serif;
   color: ${theme.colors.white + theme.transparency["60"]};
   letter-spacing: 0.5px;
@@ -55,6 +56,7 @@ export const CardDate = styled.p`
   width: 64px;
   height: 24px;
   margin: 0;
+  margin-top: 4px;
 `;
 
 export const CardGenre = styled.div`

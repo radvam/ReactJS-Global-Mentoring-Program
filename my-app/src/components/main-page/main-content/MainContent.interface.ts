@@ -6,4 +6,7 @@ export interface MainContentProps {
   ) => Promise<void>;
   movies: Movie[];
   loading: boolean;
+  filterValue: string;
+  sortValue: string;
+  sortOrder: boolean;
 }

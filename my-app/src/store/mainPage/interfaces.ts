@@ -22,7 +22,24 @@ export interface RecordMoviesDataToStore {
   moviesData: MoviesData;
 }
 
+export interface SaveFilterValue {
+  type: typeof actionTypes.SAVE_FILTER_VALUE;
+  value: string;
+}
+
+export interface SaveSortValue {
+  type: typeof actionTypes.SAVE_SORT_VALUE;
+  value: string;
+}
+
+export interface ToggleSortArrow {
+  type: typeof actionTypes.TOGGLE_SORT_ARROW;
+}
+
 export type MainPageActionsTypes =
   | RequestStart
   | RequestError
-  | RecordMoviesDataToStore;
+  | RecordMoviesDataToStore
+  | SaveFilterValue
+  | SaveSortValue
+  | ToggleSortArrow;

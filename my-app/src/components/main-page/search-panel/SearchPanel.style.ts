@@ -26,7 +26,7 @@ export const SearchPanelControl = styled.form`
 export const SearchPanelInput = styled.input`
   font-size: 21px;
   flex-grow: 1;
-  height: 54px;
+  height: 56px;
   border-radius: 4px;
   margin-right: 14px;
   padding-left: 20px;

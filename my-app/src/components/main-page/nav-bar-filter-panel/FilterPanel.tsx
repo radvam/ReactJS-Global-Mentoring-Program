@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 
-import filterData from "./utils/FilterPanelUtils";
+import { filterData } from "./utils/FilterPanelUtils";
+
+import { FilterPanelProps } from "./FilterPanel.interface";
 
 import { FilterPanelWrapper, FilterItem } from "./FilterPanel.style";
 
-export const FilterPanel = (): React.ReactElement => {
+export const FilterPanel: FC<FilterPanelProps> = ({
+  saveFilterValue,
+}): React.ReactElement => {
   const [currentTab, setCurrentTab] = useState("1");
 
-  const onClickFilterItem = (e: Record<string, any>): void => {
+  const onClickFilterItemHandler = (e: Record<string, any>): void => {
     setCurrentTab(e.target.id);
+    saveFilterValue(e.target.innerHTML.toLowerCase());
   };
 
   return (
@@ -17,7 +22,7 @@ export const FilterPanel = (): React.ReactElement => {
         <FilterItem
           key={id}
           id={id}
-          onClick={onClickFilterItem}
+          onClick={onClickFilterItemHandler}
           active={id === currentTab}
         >
           {name}
