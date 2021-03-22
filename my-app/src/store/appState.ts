@@ -4,9 +4,11 @@ import { composeWithDevTools } from "redux-devtools-extension";
 
 import { rootReducer } from "./rootReducer";
 import { MainPageState } from "./mainPage/state";
+import { MovieDetailsPageState } from "./movieDetailsPage/state";
 
 export interface AppState {
   mainPage: MainPageState;
+  movieDetailsPage: MovieDetailsPageState;
 }
 
 const initialState: AppState = {
@@ -17,6 +19,24 @@ const initialState: AppState = {
     filter: "all",
     sortBy: "release date",
     sortDescending: true,
+  },
+  movieDetailsPage: {
+    movieLoading: false,
+    movieError: "",
+    movieData: {
+      id: 1,
+      title: "",
+      tagline: "",
+      vote_average: 1,
+      vote_count: 1,
+      release_date: "",
+      poster_path: "",
+      overview: "",
+      budget: 1,
+      revenue: 1,
+      genres: ["", ""],
+      runtime: 1,
+    },
   },
 };
 

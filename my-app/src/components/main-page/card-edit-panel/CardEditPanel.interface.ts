@@ -4,6 +4,7 @@ export interface CardEditPanelProps {
   showPanel: boolean;
   toggleShowPanel: () => void;
   card: Movie;
+  deleteMovieRequest: (id: number) => Promise<void>;
 }
 
 export interface EditPanelWrapperProps {

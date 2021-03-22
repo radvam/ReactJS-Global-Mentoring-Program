@@ -54,6 +54,11 @@ export const mainPageReducer = (
         sortDescending: !state.sortDescending,
       };
     }
+    case actionTypes.RESET_MAIN_PAGE_STATE: {
+      return {
+        ...mainPageInitialState,
+      };
+    }
     default: {
       return state;
     }

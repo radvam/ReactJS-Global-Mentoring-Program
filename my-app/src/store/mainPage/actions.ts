@@ -8,13 +8,15 @@ import { prepareParamsObject } from "./utils/mainPageUtils";
 
 import { AppState } from "../appState";
 
-import { getMovies } from "./services";
+import { getMovies, delMovie } from "./services";
 
-export const requestMoviesStart = (): interfaces.RequestStart => ({
+export const requestMoviesStart = (): interfaces.RequestMoviesStart => ({
   type: actionTypes.REQUEST_MOVIES_START,
 });
 
-export const requestMoviesError = (error: string): interfaces.RequestError => ({
+export const requestMoviesError = (
+  error: string
+): interfaces.RequestMoviesError => ({
   type: actionTypes.REQUEST_MOVIES_ERROR,
   error,
 });
@@ -33,8 +35,9 @@ export const getMoviesDataRequest = (
   getState: () => AppState
 ): Promise<void> => {
   dispatch(requestMoviesStart());
+
   const navBarParams = prepareParamsObject(getState().mainPage);
-  console.log(navBarParams);
+
   const searchParams = {
     limit: 12,
     ...navBarParams,
@@ -63,3 +66,18 @@ export const saveSortValue = (value: string): interfaces.SaveSortValue => ({
 export const toggleSortArrow = (): interfaces.ToggleSortArrow => ({
   type: actionTypes.TOGGLE_SORT_ARROW,
 });
+
+export const resetMainPageState = (): interfaces.ResetMainPageState => ({
+  type: actionTypes.RESET_MAIN_PAGE_STATE,
+});
+
+export const deleteMovieRequest = (id: number) => (
+  dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>
+): Promise<void> =>
+  delMovie(id)
+    .then(() => {
+      dispatch(getMoviesDataRequest());
+    })
+    .catch((error) => {
+      dispatch(requestMoviesError(error));
+    });

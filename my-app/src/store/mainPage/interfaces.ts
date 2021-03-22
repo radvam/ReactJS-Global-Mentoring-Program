@@ -1,11 +1,11 @@
 import * as actionTypes from "./actionTypes";
 import { Movie } from "./state";
 
-export interface RequestStart {
+export interface RequestMoviesStart {
   type: typeof actionTypes.REQUEST_MOVIES_START;
 }
 
-export interface RequestError {
+export interface RequestMoviesError {
   type: typeof actionTypes.REQUEST_MOVIES_ERROR;
   error: string;
 }
@@ -36,10 +36,15 @@ export interface ToggleSortArrow {
   type: typeof actionTypes.TOGGLE_SORT_ARROW;
 }
 
+export interface ResetMainPageState {
+  type: typeof actionTypes.RESET_MAIN_PAGE_STATE;
+}
+
 export type MainPageActionsTypes =
-  | RequestStart
-  | RequestError
+  | RequestMoviesStart
+  | RequestMoviesError
   | RecordMoviesDataToStore
   | SaveFilterValue
   | SaveSortValue
-  | ToggleSortArrow;
+  | ToggleSortArrow
+  | ResetMainPageState;

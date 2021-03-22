@@ -5,6 +5,7 @@ import { MainContent } from "../../components/main-page/main-content/MainContent
 import { Header } from "../../components/main-page/header/Header";
 import { FilterPanel } from "../../components/main-page/nav-bar-filter-panel/FilterPanel";
 import { SortPanel } from "../../components/main-page/nav-bar-sort-panel/SortPanel";
+import { CardEditPanel } from "../../components/main-page/card-edit-panel/CardEditPanel";
 
 import {
   getMoviesDataSelector,
@@ -19,6 +20,7 @@ import {
   saveFilterValue,
   toggleSortArrow,
   saveSortValue,
+  deleteMovieRequest,
 } from "../../store/mainPage/actions";
 
 export const MainContentConnected = connect(
@@ -48,3 +50,7 @@ export const SortPanelConnected = connect(
   }),
   { toggleSortArrow, saveSortValue }
 )(SortPanel);
+
+export const CardEditPanelConnected = connect(null, {
+  deleteMovieRequest,
+})(CardEditPanel);

@@ -1,5 +1,8 @@
 import React, { FC, useMemo } from "react";
 
+import { Spin } from "antd";
+import { Spinner } from "../../common/Spinner/Spinner.style";
+
 import { MovieContentProps } from "./MovieContent.interface";
 
 import {
@@ -7,6 +10,7 @@ import {
   PosterBlock,
   PosterImage,
   DescriptionBlock,
+  MovieHeader,
   MovieTitle,
   MovieRating,
   MovieTagLine,
@@ -18,6 +22,7 @@ import {
 
 export const MovieContent: FC<MovieContentProps> = ({
   movie,
+  movieLoading,
 }): React.ReactElement => {
   const poster_path = movie?.poster_path;
   const title = movie?.title;
@@ -32,22 +37,24 @@ export const MovieContent: FC<MovieContentProps> = ({
   ]);
 
   return (
-    <MovieContentWrapper>
-      <PosterBlock>
-        <PosterImage src={poster_path} alt="poster" />
-      </PosterBlock>
-      <DescriptionBlock>
-        <MovieTitle>
-          {title}
-          <MovieRating>{vote_average}</MovieRating>
-        </MovieTitle>
-        <MovieTagLine>{tagline}</MovieTagLine>
-        <MovieDateAndDuration>
-          <MovieRealiseDate>{movieRealiseDate}</MovieRealiseDate>
-          <MovieDuration>{`${runtime} min`}</MovieDuration>
-        </MovieDateAndDuration>
-        <MovieDescription>{overview}</MovieDescription>
-      </DescriptionBlock>
-    </MovieContentWrapper>
+    <Spin spinning={movieLoading} indicator={<Spinner />}>
+      <MovieContentWrapper>
+        <PosterBlock>
+          <PosterImage src={poster_path} alt="poster" />
+        </PosterBlock>
+        <DescriptionBlock>
+          <MovieHeader>
+            <MovieTitle>{title}</MovieTitle>
+            <MovieRating>{vote_average}</MovieRating>
+          </MovieHeader>
+          <MovieTagLine>{tagline}</MovieTagLine>
+          <MovieDateAndDuration>
+            <MovieRealiseDate>{movieRealiseDate}</MovieRealiseDate>
+            {runtime && <MovieDuration>{`${runtime} min`}</MovieDuration>}
+          </MovieDateAndDuration>
+          <MovieDescription>{overview}</MovieDescription>
+        </DescriptionBlock>
+      </MovieContentWrapper>
+    </Spin>
   );
 };

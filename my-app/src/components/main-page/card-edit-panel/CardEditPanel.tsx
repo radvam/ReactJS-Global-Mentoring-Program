@@ -1,4 +1,5 @@
 import React, { FC, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import { Modal } from "../../common/modal/Modal";
 import { FormEdit } from "../form-edit/FormEdit";
@@ -26,10 +27,12 @@ import {
 } from "./CardEditPanel.style";
 
 export const CardEditPanel: FC<CardEditPanelProps> = ({
+  deleteMovieRequest,
   card,
   showPanel,
   toggleShowPanel,
 }): React.ReactElement => {
+  const history = useHistory();
   const [openEditModal, setOpenEditModal] = useState(false);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
 
@@ -41,6 +44,12 @@ export const CardEditPanel: FC<CardEditPanelProps> = ({
   const onClickDeleteHandler = (): void => {
     setOpenDeleteModal(true);
     toggleShowPanel();
+  };
+
+  const onOkModalDeleteHandler = (): void => {
+    deleteMovieRequest(card.id);
+    setOpenDeleteModal(false);
+    history.push("/");
   };
 
   return (
@@ -59,6 +68,7 @@ export const CardEditPanel: FC<CardEditPanelProps> = ({
         setOpenModal={setOpenDeleteModal}
         title={MODAL_DELETE_MOVIE_TITLE}
         okButtonText={MODAL_DELETE_BUTTON_OK}
+        onOk={onOkModalDeleteHandler}
       >
         <DeleteModalParagraph>{MODAL_DELETE_TEXT}</DeleteModalParagraph>
       </Modal>

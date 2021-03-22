@@ -24,6 +24,7 @@ export const Modal: FC<ModalProps> = (props): React.ReactElement => {
     title,
     okButtonText,
     cancelButtonText,
+    onOk,
   } = props;
 
   return (
@@ -41,7 +42,7 @@ export const Modal: FC<ModalProps> = (props): React.ReactElement => {
         {props.children}
         <ButtonGroup>
           {cancelButtonText && <Reset>{cancelButtonText}</Reset>}
-          <Submit>{okButtonText}</Submit>
+          <Submit onClick={onOk}>{okButtonText}</Submit>
         </ButtonGroup>
       </ModalWindow>
     </ModalWrapper>

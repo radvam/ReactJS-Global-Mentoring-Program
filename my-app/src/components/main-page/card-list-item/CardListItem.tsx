@@ -1,7 +1,7 @@
 import React, { FC, useState, useMemo, useCallback } from "react";
 import { Link } from "react-router-dom";
 
-import { CardEditPanel } from "../card-edit-panel/CardEditPanel";
+import { CardEditPanelConnected } from "../../../pages/main-page/MainPageConnectors";
 
 import { transformArrayToString } from "../../../commonUtils/transformArrayToString";
 
@@ -28,7 +28,9 @@ export const CardListItem: FC<CardListItemProps> = ({
   const [showPanel, setShowPanel] = useState(false);
 
   const movieGenres = useMemo(() => transformArrayToString(genres), [genres]);
-  const movieRealiseDate = useMemo(() => release_date.slice(0, 4), [release_date]);
+  const movieRealiseDate = useMemo(() => release_date.slice(0, 4), [
+    release_date,
+  ]);
 
   const toggleShowPanel = useCallback(() => {
     setShowPanel(!showPanel);
@@ -51,7 +53,7 @@ export const CardListItem: FC<CardListItemProps> = ({
         <ButtonOpen showOpen={showOpen} onClick={toggleShowPanel}>
           {BUTTON_OPEN}
         </ButtonOpen>
-        <CardEditPanel
+        <CardEditPanelConnected
           card={card}
           showPanel={showPanel}
           toggleShowPanel={toggleShowPanel}

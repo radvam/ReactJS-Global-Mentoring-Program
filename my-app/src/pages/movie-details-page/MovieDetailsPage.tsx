@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { HeaderMovie } from "../../components/movie-details-page/header-movie/HeaderMovie";
+import { HeaderMovieConnected } from "./MovieDetailsPageConnectors";
 import { Footer } from "../../components/main-page/footer/Footer";
 import { MainContentConnected } from "../main-page/MainPageConnectors";
 
@@ -16,7 +16,7 @@ export const MovieDetailsPage = (): React.ReactElement => {
 
   return (
     <MovieDetailsPageWrapper>
-      <HeaderMovie slugId={Number(slugId)} />
+      <HeaderMovieConnected slugId={Number(slugId)} />
       <MainContentConnected />
       <Footer />
     </MovieDetailsPageWrapper>

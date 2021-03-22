@@ -4,4 +4,5 @@ export interface ModalProps {
   title: string;
   okButtonText: string;
   cancelButtonText?: string;
+  onOk?: () => void;
 }

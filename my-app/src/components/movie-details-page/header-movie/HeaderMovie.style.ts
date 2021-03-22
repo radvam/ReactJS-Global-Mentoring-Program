@@ -1,5 +1,9 @@
 import { styled, theme } from "../../../theme";
 
+export const HeaderMovieWrapper = styled.div`
+  box-shadow: inset 0px 0px 100px 100px ${theme.colors.black + theme.transparency["70"]};
+`;
+
 export const HeaderMovieContainer = styled.div`
   display: flex;
   flex-direction: column;

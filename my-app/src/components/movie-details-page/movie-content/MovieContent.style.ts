@@ -25,19 +25,23 @@ export const DescriptionBlock = styled.div`
   align-self: flex-start;
 `;
 
-export const MovieTitle = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+export const MovieHeader = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 100px;
   font-family: "Lato-Light", sans-serif;
   font-size: 54px;
   letter-spacing: 0.5px;
   color: ${theme.colors.white};
   margin: 0;
-  min-width: 420px;
+`;
+
+export const MovieTitle = styled.p`
+  text-align: left;
+  margin: 0;
 `;
 
 export const MovieRating = styled.div`
+  align-self: center;
   font-family: "Lato-Light", sans-serif;
   font-size: 24px;
   display: flex;

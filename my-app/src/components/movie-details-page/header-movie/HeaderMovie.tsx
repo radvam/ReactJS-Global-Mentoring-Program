@@ -1,36 +1,38 @@
-import React, { FC, useMemo } from "react";
+import React, { FC, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { Logo } from "../../common/logo/Logo";
-import { MovieContent } from "../movie-content/MovieContent";
+import { MovieContentConnected } from "../../../pages/movie-details-page/MovieDetailsPageConnectors";
 
-import cardListData from "../../../data/moviesData";
 import { HeaderMovieProps } from "./HeaderMovie.interface";
 
 import {
-  HeaderWrapper,
-} from "../../main-page/header/Header.style";
-
-import { HeaderMovieContainer, HeaderMovieTop, Search } from "./HeaderMovie.style";
+  HeaderMovieWrapper,
+  HeaderMovieContainer,
+  HeaderMovieTop,
+  Search,
+} from "./HeaderMovie.style";
 
 export const HeaderMovie: FC<HeaderMovieProps> = ({
+  getMovieDataRequest,
+  resetMainPageState,
   slugId,
 }): React.ReactElement => {
-  const movie = useMemo(() => cardListData.find(({ id }) => slugId === id), [
-    slugId,
-  ]);
+  useEffect(() => {
+    getMovieDataRequest(slugId);
+  }, [getMovieDataRequest, slugId]);
 
   return (
-    <HeaderWrapper>
+    <HeaderMovieWrapper>
       <HeaderMovieContainer>
         <HeaderMovieTop>
-          <Logo />
+          <Logo onClick={resetMainPageState} />
           <Link to="/">
-            <Search />
+            <Search onClick={resetMainPageState} />
           </Link>
         </HeaderMovieTop>
-        <MovieContent movie={movie} />
+        <MovieContentConnected />
       </HeaderMovieContainer>
-    </HeaderWrapper>
+    </HeaderMovieWrapper>
   );
 };
