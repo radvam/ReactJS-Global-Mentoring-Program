@@ -33,7 +33,6 @@ export const getMovieDataRequest = (id: number) => (
 
   return getMovie(id)
     .then((response) => {
-      console.log(response);
       dispatch(recordMovieDataToStore(response.data));
     })
     .catch((error) => {

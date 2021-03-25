@@ -5,6 +5,7 @@ import { NavBar } from "../nav-bar/NavBar";
 import { FilmsCounter } from "../films-counter/FilmsCounter";
 import { CardList } from "../card-list/CardList";
 import { Spinner } from "../../common/Spinner/Spinner.style";
+import { ContentNotFound } from "../content-not-found/ContentNotFound";
 
 import { MainContentProps } from "./MainContent.interface";
 
@@ -20,19 +21,20 @@ export const MainContent: FC<MainContentProps> = ({
 }): React.ReactElement => {
   useEffect(() => {
     getMoviesDataRequest();
-  }, [
-    getMoviesDataRequest,
-    filterValue,
-    sortValue,
-    sortOrder,
-  ]);
+  }, [getMoviesDataRequest, filterValue, sortValue, sortOrder]);
 
   return (
     <Spin spinning={loading} indicator={<Spinner />}>
       <MainContentWrapper>
         <NavBar />
-        <FilmsCounter count={movies.length} />
-        {movies && <CardList cardListData={movies} />}
+        {movies.length ? (
+          <>
+            <FilmsCounter count={movies.length} />
+            <CardList cardListData={movies} />
+          </>
+        ) : (
+          <ContentNotFound />
+        )}
       </MainContentWrapper>
     </Spin>
   );
