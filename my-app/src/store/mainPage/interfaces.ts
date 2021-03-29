@@ -40,6 +40,45 @@ export interface ResetMainPageState {
   type: typeof actionTypes.RESET_MAIN_PAGE_STATE;
 }
 
+export interface SetFormTitle {
+  type: typeof actionTypes.SET_FORM_TITLE;
+  title: string;
+}
+
+export interface SetFormDate {
+  type: typeof actionTypes.SET_FORM_DATE;
+  date: string;
+}
+
+export interface SetFormUrl {
+  type: typeof actionTypes.SET_FORM_URL;
+  url: string;
+}
+
+export interface SetFormGenres {
+  type: typeof actionTypes.SET_FORM_GENRES;
+  genres: string[];
+}
+
+export interface SetFormOverview {
+  type: typeof actionTypes.SET_FORM_OVERVIEW;
+  overview: string;
+}
+
+export interface SetFormRuntime {
+  type: typeof actionTypes.SET_FORM_RUNTIME;
+  runtime: number;
+}
+
+export interface SaveSelectedMovie {
+  type: typeof actionTypes.SAVE_SELECTED_MOVIE;
+  movie: Movie;
+}
+
+export interface ResetMovieForm {
+  type: typeof actionTypes.RESET_MOVIE_FORM;
+}
+
 export type MainPageActionsTypes =
   | RequestMoviesStart
   | RequestMoviesError
@@ -47,4 +86,13 @@ export type MainPageActionsTypes =
   | SaveFilterValue
   | SaveSortValue
   | ToggleSortArrow
-  | ResetMainPageState;
+  | ResetMainPageState
+  | SetFormTitle
+  | SetFormDate
+  | SetFormUrl
+  | SetFormGenres
+  | SetFormOverview
+  | SetFormRuntime
+  | ResetMovieForm
+  | SaveSelectedMovie;
+  

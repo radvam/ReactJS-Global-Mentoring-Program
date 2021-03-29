@@ -20,4 +20,6 @@ export interface MainPageState {
   filter: string;
   sortDescending: boolean;
   sortBy: string;
+  movieForm: Record<string, any>;
+  [name: string]: any;
 }

@@ -1,6 +1,6 @@
 import React, { useState, FC } from "react";
 
-import { FormAdd } from "../form-add/FormAdd";
+import { FormAddConnected } from "../../../pages/main-page/MainPageConnectors";
 import { Logo } from "../../common/logo/Logo";
 import { SearchPanel } from "../search-panel/SearchPanel";
 
@@ -24,8 +24,20 @@ import {
 
 export const Header: FC<HeaderProps> = ({
   getMoviesDataRequest,
+  postMovieRequest,
+  resetMovieForm,
 }): React.ReactElement => {
   const [openModal, setOpenModal] = useState(false);
+
+  const onOkModalAddHandler = (): void => {
+    postMovieRequest();
+    setOpenModal(false);
+    resetMovieForm();
+  };
+
+  const onCancelModalAddHandler = (): void => {
+    resetMovieForm();
+  };
 
   return (
     <HeaderWrapper>
@@ -35,8 +47,10 @@ export const Header: FC<HeaderProps> = ({
         title={MODAL_ADD_MOVIE_TITLE}
         okButtonText={MODAL_ADD_BUTTON_OK}
         cancelButtonText={MODAL_ADD_BUTTON_CANCEL}
+        onOk={onOkModalAddHandler}
+        onCancel={onCancelModalAddHandler}
       >
-        <FormAdd />
+        <FormAddConnected />
       </Modal>
       <HeaderContainer>
         <HeaderTop>

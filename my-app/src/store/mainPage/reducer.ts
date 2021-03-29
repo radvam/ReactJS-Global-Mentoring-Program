@@ -9,6 +9,7 @@ export const mainPageInitialState: MainPageState = {
   filter: "all",
   sortBy: "release date",
   sortDescending: true,
+  movieForm: {},
 };
 
 export const mainPageReducer = (
@@ -57,6 +58,54 @@ export const mainPageReducer = (
     case actionTypes.RESET_MAIN_PAGE_STATE: {
       return {
         ...mainPageInitialState,
+      };
+    }
+    case actionTypes.SET_FORM_TITLE: {
+      return {
+        ...state,
+        movieForm: { ...state.movieForm, title: action.title },
+      };
+    }
+    case actionTypes.SET_FORM_DATE: {
+      return {
+        ...state,
+        movieForm: { ...state.movieForm, release_date: action.date },
+      };
+    }
+    case actionTypes.SET_FORM_URL: {
+      return {
+        ...state,
+        movieForm: { ...state.movieForm, poster_path: action.url },
+      };
+    }
+    case actionTypes.SET_FORM_GENRES: {
+      return {
+        ...state,
+        movieForm: { ...state.movieForm, genres: action.genres },
+      };
+    }
+    case actionTypes.SET_FORM_OVERVIEW: {
+      return {
+        ...state,
+        movieForm: { ...state.movieForm, overview: action.overview },
+      };
+    }
+    case actionTypes.SET_FORM_RUNTIME: {
+      return {
+        ...state,
+        movieForm: { ...state.movieForm, runtime: action.runtime },
+      };
+    }
+    case actionTypes.SAVE_SELECTED_MOVIE: {
+      return {
+        ...state,
+        selectedMovie: action.movie,
+      };
+    }
+    case actionTypes.RESET_MOVIE_FORM: {
+      return {
+        ...state,
+        movieForm: {},
       };
     }
     default: {

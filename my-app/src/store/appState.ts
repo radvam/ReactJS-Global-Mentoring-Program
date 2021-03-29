@@ -19,6 +19,7 @@ const initialState: AppState = {
     filter: "all",
     sortBy: "release date",
     sortDescending: true,
+    movieForm: {},
   },
   movieDetailsPage: {
     movieLoading: false,

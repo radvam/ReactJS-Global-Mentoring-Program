@@ -6,6 +6,8 @@ import { Header } from "../../components/main-page/header/Header";
 import { FilterPanel } from "../../components/main-page/nav-bar-filter-panel/FilterPanel";
 import { SortPanel } from "../../components/main-page/nav-bar-sort-panel/SortPanel";
 import { CardEditPanel } from "../../components/main-page/card-edit-panel/CardEditPanel";
+import { FormAdd } from "../../components/main-page/form-add/FormAdd";
+import { FormEdit } from "../../components/main-page/form-edit/FormEdit";
 
 import {
   getMoviesDataSelector,
@@ -21,6 +23,16 @@ import {
   toggleSortArrow,
   saveSortValue,
   deleteMovieRequest,
+  setFormTitle,
+  setFormDate,
+  setFormUrl,
+  setFormGenres,
+  setFormOverview,
+  setFormRuntime,
+  postMovieRequest,
+  saveSelectedMovie,
+  putMovieRequest,
+  resetMovieForm,
 } from "../../store/mainPage/actions";
 
 export const MainContentConnected = connect(
@@ -38,6 +50,8 @@ export const MainContentConnected = connect(
 
 export const HeaderConnected = connect(null, {
   getMoviesDataRequest,
+  postMovieRequest,
+  resetMovieForm,
 })(Header);
 
 export const FilterPanelConnected = connect(null, {
@@ -53,4 +67,28 @@ export const SortPanelConnected = connect(
 
 export const CardEditPanelConnected = connect(null, {
   deleteMovieRequest,
+  saveSelectedMovie,
+  putMovieRequest,
+  resetMovieForm,
 })(CardEditPanel);
+
+export const FormAddConnected = connect(
+  null,
+  {
+    setFormTitle,
+    setFormDate,
+    setFormUrl,
+    setFormGenres,
+    setFormOverview,
+    setFormRuntime,
+  }
+)(FormAdd);
+
+export const FormEditConnected = connect(null, {
+  setFormTitle,
+  setFormDate,
+  setFormUrl,
+  setFormGenres,
+  setFormOverview,
+  setFormRuntime,
+})(FormEdit);

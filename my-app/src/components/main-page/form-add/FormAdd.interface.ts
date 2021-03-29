@@ -1,7 +1,4 @@
-import { Movie } from "../../../store/mainPage/state";
-
-export interface FormEditProps {
-  card: Movie;
+export interface FormAddProps {
   setFormTitle: (title: string) => void;
   setFormDate: (date: string) => void;
   setFormUrl: (url: string) => void;

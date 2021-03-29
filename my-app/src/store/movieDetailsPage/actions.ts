@@ -26,6 +26,7 @@ export const recordMovieDataToStore = (
   movieData,
 });
 
+//Get movie by id
 export const getMovieDataRequest = (id: number) => (
   dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>
 ): Promise<void> => {

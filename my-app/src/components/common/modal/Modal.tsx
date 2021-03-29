@@ -25,12 +25,18 @@ export const Modal: FC<ModalProps> = (props): React.ReactElement => {
     okButtonText,
     cancelButtonText,
     onOk,
+    onCancel,
   } = props;
+
+  const onCancelModalHandler = (): void => {
+    setOpenModal(false);
+    if (onCancel) onCancel();
+  };
 
   return (
     <ModalWrapper>
       <ModalWindow
-        onCancel={() => setOpenModal(false)}
+        onCancel={onCancelModalHandler}
         maskStyle={{
           background: theme.colors.lightGrey + theme.transparency["50"],
         }}

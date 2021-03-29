@@ -31,6 +31,7 @@ export const MovieContent: FC<MovieContentProps> = ({
   const overview = movie?.overview;
   const release_date = movie?.release_date;
   const runtime = movie?.runtime;
+  console.log(runtime);
 
   const movieRealiseDate = useMemo(() => release_date?.slice(0, 4), [
     release_date,
@@ -50,7 +51,7 @@ export const MovieContent: FC<MovieContentProps> = ({
           <MovieTagLine>{tagline}</MovieTagLine>
           <MovieDateAndDuration>
             <MovieRealiseDate>{movieRealiseDate}</MovieRealiseDate>
-            {runtime && <MovieDuration>{`${runtime} min`}</MovieDuration>}
+            {runtime ? <MovieDuration>{`${runtime} min`}</MovieDuration> : null}
           </MovieDateAndDuration>
           <MovieDescription>{overview}</MovieDescription>
         </DescriptionBlock>

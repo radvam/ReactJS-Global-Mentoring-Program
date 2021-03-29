@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import { Modal } from "../../common/modal/Modal";
-import { FormEdit } from "../form-edit/FormEdit";
+import { FormEditConnected } from "../../../pages/main-page/MainPageConnectors";
 
 import {
   BUTTON_EDIT,
@@ -28,9 +28,12 @@ import {
 
 export const CardEditPanel: FC<CardEditPanelProps> = ({
   deleteMovieRequest,
+  putMovieRequest,
   card,
   showPanel,
   toggleShowPanel,
+  saveSelectedMovie,
+  resetMovieForm,
 }): React.ReactElement => {
   const history = useHistory();
   const [openEditModal, setOpenEditModal] = useState(false);
@@ -39,11 +42,22 @@ export const CardEditPanel: FC<CardEditPanelProps> = ({
   const onClickEditHandler = (): void => {
     setOpenEditModal(true);
     toggleShowPanel();
+    saveSelectedMovie(card);
   };
 
   const onClickDeleteHandler = (): void => {
     setOpenDeleteModal(true);
     toggleShowPanel();
+  };
+
+  const onOkModalEditHandler = (): void => {
+    putMovieRequest();
+    setOpenEditModal(false);
+    resetMovieForm();
+  };
+
+  const onCancelModalEditHandler = (): void => {
+    resetMovieForm();
   };
 
   const onOkModalDeleteHandler = (): void => {
@@ -60,8 +74,10 @@ export const CardEditPanel: FC<CardEditPanelProps> = ({
         title={MODAL_EDIT_MOVIE_TITLE}
         okButtonText={MODAL_EDIT_BUTTON_OK}
         cancelButtonText={MODAL_EDIT_BUTTON_CANCEL}
+        onOk={onOkModalEditHandler}
+        onCancel={onCancelModalEditHandler}
       >
-        <FormEdit card={card} />
+        <FormEditConnected card={card} />
       </Modal>
       <Modal
         openModal={openDeleteModal}

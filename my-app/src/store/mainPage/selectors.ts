@@ -33,3 +33,16 @@ export const sortDescValueSelector = createSelector(
   sortDescendingValue,
   (value) => value
 );
+
+const getMovieForm = (state: AppState) => state.mainPage.movieForm;
+export const getMovieFormSelector = createSelector(
+  getMovieForm,
+  (value) => value
+);
+
+const gerSelectedMovie = (state: AppState) =>
+  state.mainPage.selectedMovie;
+export const gerSelectedMovieSelector = createSelector(
+  gerSelectedMovie,
+  (value) => value
+);

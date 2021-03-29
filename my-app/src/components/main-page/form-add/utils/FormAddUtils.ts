@@ -29,3 +29,15 @@ export const defineColorsByGenres = (genres: string[]): string[] => {
   });
   return result;
 };
+
+export const defineGenresByColors = (array: string[]): string[] => {
+  const result: string[] = [];
+  array.forEach((item) => {
+    selectGenresData.forEach(({ label, value }) => {
+      if (value === item) {
+        result.push(label);
+      }
+    });
+  });
+  return result;
+};

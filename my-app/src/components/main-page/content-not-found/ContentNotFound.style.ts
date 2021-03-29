@@ -6,6 +6,7 @@ export const ContentNotFoundWrapper = styled.div`
   align-items: center;
   justify-content: center;
   height: calc(100vh - 500px);
+  min-height: 180px;
 `;
 
 export const ContentNotFoundText = styled.p`

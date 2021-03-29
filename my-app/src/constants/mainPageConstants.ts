@@ -46,3 +46,13 @@ export const MODAL_EDIT_BUTTON_CANCEL = "Reset";
 export const MODAL_DELETE_MOVIE_TITLE = "Delete movie";
 export const MODAL_DELETE_BUTTON_OK = "Confirm";
 export const MODAL_DELETE_TEXT = "Are you sure you want to delete this movie?";
+
+//Notification
+export const SUCCESS = "Success";
+export const ERROR = "Error";
+export const SUCCESS_ADD_MESSAGE = "Successfully added a new movie!";
+export const ERROR_ADD_MESSAGE = "Failed to add a new movie!";
+export const SUCCESS_EDIT_MESSAGE = "Successfully edited a movie!";
+export const ERROR_EDIT_MESSAGE = "Failed to edit a movie!";
+export const SUCCESS_DELETE_MESSAGE = 'Successfully removed a movie!';
+export const ERROR_DELETE_MESSAGE = 'Failed to remove a movie!';

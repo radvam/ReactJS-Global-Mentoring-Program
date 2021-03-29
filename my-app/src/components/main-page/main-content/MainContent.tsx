@@ -24,18 +24,18 @@ export const MainContent: FC<MainContentProps> = ({
   }, [getMoviesDataRequest, filterValue, sortValue, sortOrder]);
 
   return (
-    <Spin spinning={loading} indicator={<Spinner />}>
-      <MainContentWrapper>
-        <NavBar />
+    <MainContentWrapper>
+      <NavBar />
+      <Spin spinning={loading} indicator={<Spinner />}>
         {movies.length ? (
           <>
             <FilmsCounter count={movies.length} />
             <CardList cardListData={movies} />
           </>
         ) : (
-          <ContentNotFound />
+          <ContentNotFound loading={loading} />
         )}
-      </MainContentWrapper>
-    </Spin>
+      </Spin>
+    </MainContentWrapper>
   );
 };

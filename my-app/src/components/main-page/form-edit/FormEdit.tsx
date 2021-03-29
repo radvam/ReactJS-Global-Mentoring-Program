@@ -4,6 +4,7 @@ import { Input, InputNumber, Select, DatePicker } from "antd";
 
 import {
   selectGenresData,
+  defineGenresByColors,
   defineColorsByGenres,
 } from "../form-add/utils/FormAddUtils";
 import { TagRender } from "../form-add/utils/TagRender";
@@ -13,7 +14,15 @@ import { FormEditProps } from "./FormEdit.interface";
 import { FormAddWrapper, FormItem, Title } from "../form-add/FormAdd.style";
 import { MovieId } from "./FormEdit.style";
 
-export const FormEdit: FC<FormEditProps> = ({ card }): React.ReactElement => {
+export const FormEdit: FC<FormEditProps> = ({
+  card,
+  setFormTitle,
+  setFormDate,
+  setFormUrl,
+  setFormGenres,
+  setFormOverview,
+  setFormRuntime,
+}): React.ReactElement => {
   const {
     id,
     title,
@@ -28,6 +37,29 @@ export const FormEdit: FC<FormEditProps> = ({ card }): React.ReactElement => {
   ]);
   const defaultGenres = useMemo(() => defineColorsByGenres(genres), [genres]);
 
+  const onChangeTitleHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormTitle(e.target.value);
+  };
+  const onChangeDateHandler = (e: any) => {
+    const date: string = moment(e, "YYYY-MM-DD").format("YYYY-MM-DD");
+    setFormDate(date);
+  };
+  const onChangeUrlHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormUrl(e.target.value);
+  };
+  const onChangeGenresHandler = (genres: string[]) => {
+    const genre = defineGenresByColors(genres);
+    setFormGenres(genre);
+  };
+  const onChangeOverviewHandler = (
+    e: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    setFormOverview(e.target.value);
+  };
+  const onChangeRuntimeHandler = (n: number) => {
+    setFormRuntime(n);
+  };
+
   return (
     <FormAddWrapper>
       <FormItem>
@@ -40,6 +72,7 @@ export const FormEdit: FC<FormEditProps> = ({ card }): React.ReactElement => {
           placeholder="Enter a title"
           defaultValue={title}
           size={"large"}
+          onChange={onChangeTitleHandler}
         />
       </FormItem>
       <FormItem>
@@ -48,6 +81,7 @@ export const FormEdit: FC<FormEditProps> = ({ card }): React.ReactElement => {
           style={{ width: "100%" }}
           size={"large"}
           defaultValue={defaultDate}
+          onChange={onChangeDateHandler}
         />
       </FormItem>
       <FormItem>
@@ -56,6 +90,7 @@ export const FormEdit: FC<FormEditProps> = ({ card }): React.ReactElement => {
           placeholder="Movie URL here"
           size={"large"}
           defaultValue={poster_path}
+          onChange={onChangeUrlHandler}
         />
       </FormItem>
       <FormItem>
@@ -69,6 +104,7 @@ export const FormEdit: FC<FormEditProps> = ({ card }): React.ReactElement => {
           options={selectGenresData}
           defaultValue={defaultGenres}
           size={"large"}
+          onChange={onChangeGenresHandler}
         />
       </FormItem>
       <FormItem>
@@ -79,11 +115,17 @@ export const FormEdit: FC<FormEditProps> = ({ card }): React.ReactElement => {
           defaultValue={overview}
           autoSize
           maxLength={500}
+          onChange={onChangeOverviewHandler}
         />
       </FormItem>
       <FormItem>
         <Title>Runtime</Title>
-        <InputNumber size={"large"} defaultValue={runtime} min={0} />
+        <InputNumber
+          size={"large"}
+          defaultValue={runtime | 0}
+          min={0}
+          onChange={onChangeRuntimeHandler}
+        />
       </FormItem>
     </FormAddWrapper>
   );

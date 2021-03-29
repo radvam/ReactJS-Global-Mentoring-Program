@@ -28,7 +28,7 @@ export const CardListItem: FC<CardListItemProps> = ({
   const [showPanel, setShowPanel] = useState(false);
 
   const movieGenres = useMemo(() => transformArrayToString(genres), [genres]);
-  const movieRealiseDate = useMemo(() => release_date.slice(0, 4), [
+  const movieRealiseDate = useMemo(() => release_date?.slice(0, 4), [
     release_date,
   ]);
 
