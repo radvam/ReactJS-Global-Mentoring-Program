@@ -34,13 +34,13 @@ export const MODAL_WIDTH = 550;
 
 //Modal add
 export const MODAL_ADD_MOVIE_TITLE = "Add movie";
-export const MODAL_ADD_BUTTON_OK = "Submit";
-export const MODAL_ADD_BUTTON_CANCEL = "Reset";
+export const MODAL_ADD_BUTTON_SUBMIT = "Submit";
+export const MODAL_ADD_BUTTON_RESET = "Reset";
 
 //Modal edit
 export const MODAL_EDIT_MOVIE_TITLE = "Edit movie";
-export const MODAL_EDIT_BUTTON_OK = "Save";
-export const MODAL_EDIT_BUTTON_CANCEL = "Reset";
+export const MODAL_EDIT_BUTTON_SUBMIT = "Save";
+export const MODAL_EDIT_BUTTON_RESET = "Reset";
 
 //Modal delete
 export const MODAL_DELETE_MOVIE_TITLE = "Delete movie";
@@ -54,5 +54,15 @@ export const SUCCESS_ADD_MESSAGE = "Successfully added a new movie!";
 export const ERROR_ADD_MESSAGE = "Failed to add a new movie!";
 export const SUCCESS_EDIT_MESSAGE = "Successfully edited a movie!";
 export const ERROR_EDIT_MESSAGE = "Failed to edit a movie!";
-export const SUCCESS_DELETE_MESSAGE = 'Successfully removed a movie!';
-export const ERROR_DELETE_MESSAGE = 'Failed to remove a movie!';
+export const SUCCESS_DELETE_MESSAGE = "Successfully removed a movie!";
+export const ERROR_DELETE_MESSAGE = "Failed to remove a movie!";
+
+//Form movie
+export const REQUIRED = "* Required";
+export const ID_LABEL = "Movie ID";
+export const TITLE_LABEL = "Title";
+export const DATE_LABEL = "Release Date";
+export const URL_LABEL = "Movie Url";
+export const GENRE_LABEL = "Genre";
+export const OVERVIEW_LABEL = "Overview";
+export const RUNTIME_LABEL = "Runtime";

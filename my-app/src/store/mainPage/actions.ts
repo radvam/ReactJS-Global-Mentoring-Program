@@ -18,10 +18,10 @@ import {
   ERROR_DELETE_MESSAGE,
 } from "../../constants/mainPageConstants";
 
-import { gerSelectedMovieSelector, getMovieFormSelector } from "./selectors";
+import { gerSelectedMovieSelector } from "./selectors";
 import { getMovieDataRequest } from "../movieDetailsPage/actions";
 
-import { Movie } from "./state";
+import { Movie, MovieForm } from "./state";
 import { AppState } from "../appState";
 
 import { getMovies, delMovie, addMovie, editMovie } from "./services";
@@ -139,11 +139,9 @@ export const resetMovieForm = (): interfaces.ResetMovieForm => ({
 });
 
 //Add movie
-export const postMovieRequest = () => (
-  dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>,
-  getState: () => AppState
+export const postMovieRequest = (movieForm: MovieForm) => (
+  dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>
 ): Promise<void> => {
-  const movieForm = getMovieFormSelector(getState());
   const movie = {
     vote_average: 0,
     vote_count: 9,
@@ -163,11 +161,10 @@ export const postMovieRequest = () => (
 };
 
 //Edit movie
-export const putMovieRequest = () => (
+export const putMovieRequest = (movieForm: MovieForm) => (
   dispatch: ThunkDispatch<AppState, Record<string, unknown>, AnyAction>,
   getState: () => AppState
 ): Promise<void> => {
-  const movieForm = getMovieFormSelector(getState());
   const movie = gerSelectedMovieSelector(getState());
   const resultMovie = prepareMovieForRequest(movie, movieForm);
 

@@ -9,11 +9,11 @@ import {
   BUTTON_DELETE,
   BUTTON_CLOSE,
   MODAL_EDIT_MOVIE_TITLE,
-  MODAL_EDIT_BUTTON_OK,
-  MODAL_EDIT_BUTTON_CANCEL,
   MODAL_DELETE_MOVIE_TITLE,
   MODAL_DELETE_BUTTON_OK,
   MODAL_DELETE_TEXT,
+  MODAL_EDIT_BUTTON_SUBMIT,
+  MODAL_EDIT_BUTTON_RESET,
 } from "../../../constants/mainPageConstants";
 
 import { CardEditPanelProps } from "./CardEditPanel.interface";
@@ -28,16 +28,31 @@ import {
 
 export const CardEditPanel: FC<CardEditPanelProps> = ({
   deleteMovieRequest,
-  putMovieRequest,
   card,
   showPanel,
   toggleShowPanel,
   saveSelectedMovie,
-  resetMovieForm,
 }): React.ReactElement => {
   const history = useHistory();
   const [openEditModal, setOpenEditModal] = useState(false);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const {
+    id,
+    title,
+    release_date,
+    poster_path,
+    overview,
+    genres,
+    runtime,
+  } = card;
+  const FormEditInitialValue = {
+    title,
+    release_date,
+    poster_path,
+    overview,
+    genres,
+    runtime: runtime || 90,
+  };
 
   const onClickEditHandler = (): void => {
     setOpenEditModal(true);
@@ -48,16 +63,6 @@ export const CardEditPanel: FC<CardEditPanelProps> = ({
   const onClickDeleteHandler = (): void => {
     setOpenDeleteModal(true);
     toggleShowPanel();
-  };
-
-  const onOkModalEditHandler = (): void => {
-    putMovieRequest();
-    setOpenEditModal(false);
-    resetMovieForm();
-  };
-
-  const onCancelModalEditHandler = (): void => {
-    resetMovieForm();
   };
 
   const onOkModalDeleteHandler = (): void => {
@@ -72,12 +77,14 @@ export const CardEditPanel: FC<CardEditPanelProps> = ({
         openModal={openEditModal}
         setOpenModal={setOpenEditModal}
         title={MODAL_EDIT_MOVIE_TITLE}
-        okButtonText={MODAL_EDIT_BUTTON_OK}
-        cancelButtonText={MODAL_EDIT_BUTTON_CANCEL}
-        onOk={onOkModalEditHandler}
-        onCancel={onCancelModalEditHandler}
       >
-        <FormEditConnected card={card} />
+        <FormEditConnected
+          id={id}
+          resetButtonText={MODAL_EDIT_BUTTON_RESET}
+          submitButtonText={MODAL_EDIT_BUTTON_SUBMIT}
+          setOpenModal={setOpenEditModal}
+          formInitialValues={FormEditInitialValue}
+        />
       </Modal>
       <Modal
         openModal={openDeleteModal}

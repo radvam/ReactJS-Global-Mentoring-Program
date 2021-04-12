@@ -51,7 +51,7 @@ export const MovieContent: FC<MovieContentProps> = ({
           <MovieTagLine>{tagline}</MovieTagLine>
           <MovieDateAndDuration>
             <MovieRealiseDate>{movieRealiseDate}</MovieRealiseDate>
-            {runtime ? <MovieDuration>{`${runtime} min`}</MovieDuration> : null}
+            <MovieDuration>{`${runtime || 90} min`}</MovieDuration>
           </MovieDateAndDuration>
           <MovieDescription>{overview}</MovieDescription>
         </DescriptionBlock>

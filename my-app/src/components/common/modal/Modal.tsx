@@ -46,10 +46,12 @@ export const Modal: FC<ModalProps> = (props): React.ReactElement => {
       >
         <ModalTitle>{title}</ModalTitle>
         {props.children}
-        <ButtonGroup>
-          {cancelButtonText && <Reset>{cancelButtonText}</Reset>}
-          <Submit onClick={onOk}>{okButtonText}</Submit>
-        </ButtonGroup>
+        {okButtonText && (
+          <ButtonGroup>
+            {cancelButtonText && <Reset>{cancelButtonText}</Reset>}
+            {okButtonText && <Submit onClick={onOk}>{okButtonText}</Submit>}
+          </ButtonGroup>
+        )}
       </ModalWindow>
     </ModalWrapper>
   );

@@ -13,6 +13,15 @@ export interface Movie {
   runtime: number;
 }
 
+export interface MovieForm {
+  title: string;
+  release_date: string;
+  poster_path: string;
+  overview: string;
+  genres: string[];
+  runtime: number;
+}
+
 export interface MainPageState {
   moviesLoading: boolean;
   moviesError: string;
