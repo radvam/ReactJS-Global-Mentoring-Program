@@ -1,12 +1,11 @@
 import React, { FC } from "react";
 import { Formik } from "formik";
 
-import { genresData } from "./utils/FormMovieUtils";
+import { genresData, validationSchema } from "./utils/FormMovieUtils";
 
 import { FormMovieProps } from "./FormMovie.interface";
 
 import {
-  REQUIRED,
   ID_LABEL,
   TITLE_LABEL,
   DATE_LABEL,
@@ -38,32 +37,11 @@ export const FormMovie: FC<FormMovieProps> = ({
   return (
     <Formik
       initialValues={formInitialValues}
-      validate={(values) => {
-        const errors: Record<string, any> = {};
-        if (!values.title) {
-          errors.title = REQUIRED;
-        }
-        if (!values.release_date) {
-          errors.release_date = REQUIRED;
-        }
-        if (!values.poster_path) {
-          errors.poster_path = REQUIRED;
-        }
-        if (!values.genres.length) {
-          errors.genres = REQUIRED;
-        }
-        if (!values.overview) {
-          errors.overview = REQUIRED;
-        }
-        if (!values.overview) {
-          errors.runtime = REQUIRED;
-        }
-        return errors;
-      }}
-      onSubmit={(values, { resetForm }) => {
-        onSubmit(values);
-        resetForm({});
+      validationSchema={validationSchema}
+      onSubmit={async (values, { resetForm }) => {
         setOpenModal(false);
+        await onSubmit(values);
+        resetForm({});
       }}
     >
       {({

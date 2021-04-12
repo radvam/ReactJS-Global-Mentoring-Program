@@ -169,7 +169,8 @@ export const putMovieRequest = (movieForm: MovieForm) => (
   const resultMovie = prepareMovieForRequest(movie, movieForm);
 
   return editMovie(resultMovie)
-    .then(() => {
+    .then((response) => {
+      dispatch(saveSelectedMovie(response.data));
       dispatch(getMoviesDataRequest());
       dispatch(getMovieDataRequest(resultMovie.id));
       notice.success(SUCCESS_EDIT_MESSAGE);

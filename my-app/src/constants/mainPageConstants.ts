@@ -58,7 +58,6 @@ export const SUCCESS_DELETE_MESSAGE = "Successfully removed a movie!";
 export const ERROR_DELETE_MESSAGE = "Failed to remove a movie!";
 
 //Form movie
-export const REQUIRED = "* Required";
 export const ID_LABEL = "Movie ID";
 export const TITLE_LABEL = "Title";
 export const DATE_LABEL = "Release Date";
