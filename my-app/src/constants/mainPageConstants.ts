@@ -21,6 +21,7 @@ export const BUTTON_EDIT = "Edit";
 export const BUTTON_DELETE = "Delete";
 export const BUTTON_OPEN = "...";
 export const BUTTON_CLOSE = "x";
+export const DEFAULT_POSTER_URL = "/images/poster.jpg";
 
 //Error boundary
 export const ERROR_BOUNDARY_MESSAGE = "Something went wrong.";

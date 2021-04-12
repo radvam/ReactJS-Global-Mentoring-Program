@@ -3,6 +3,8 @@ import React, { FC, useMemo } from "react";
 import { Spin } from "antd";
 import { Spinner } from "../../common/Spinner/Spinner.style";
 
+import { DEFAULT_POSTER_URL } from "../../../constants/mainPageConstants";
+
 import { MovieContentProps } from "./MovieContent.interface";
 
 import {
@@ -36,11 +38,19 @@ export const MovieContent: FC<MovieContentProps> = ({
     release_date,
   ]);
 
+  const onErrorImgHandler = (e: React.BaseSyntheticEvent): void => {
+    e.target.src = DEFAULT_POSTER_URL;
+  };
+
   return (
     <Spin spinning={movieLoading} indicator={<Spinner />}>
       <MovieContentWrapper>
         <PosterBlock>
-          <PosterImage src={poster_path} alt="poster" />
+          <PosterImage
+            src={poster_path || DEFAULT_POSTER_URL}
+            alt="poster"
+            onError={onErrorImgHandler}
+          />
         </PosterBlock>
         <DescriptionBlock>
           <MovieHeader>

@@ -2,7 +2,8 @@ import { styled, theme } from "../../../theme";
 
 export const HeaderWrapper = styled.div`
   background: url(${"./images/header.jpg"}) no-repeat center center / cover;
-  box-shadow: inset 0px 0px 100px 100px ${theme.colors.black + theme.transparency["70"]};
+  box-shadow: inset 0px 0px 90px 100px
+    ${theme.colors.black + theme.transparency["90"]};
 `;
 
 export const HeaderContainer = styled.div`
@@ -12,7 +13,7 @@ export const HeaderContainer = styled.div`
   min-height: 346px;
   border-bottom: 10px solid ${theme.colors.lightGrey};
   padding: 20px 50px;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(1.5px);
 `;
 
 export const HeaderTop = styled.div`

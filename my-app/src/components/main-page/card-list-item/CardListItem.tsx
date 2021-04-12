@@ -7,7 +7,10 @@ import { transformArrayToString } from "../../../commonUtils/transformArrayToStr
 
 import { CardListItemProps } from "./CardListItem.interface";
 
-import { BUTTON_OPEN } from "../../../constants/mainPageConstants";
+import {
+  BUTTON_OPEN,
+  DEFAULT_POSTER_URL,
+} from "../../../constants/mainPageConstants";
 
 import {
   CardListItemWrapper,
@@ -44,6 +47,10 @@ export const CardListItem: FC<CardListItemProps> = ({
     setShowOpen(false);
   };
 
+  const onErrorImgHandler = (e: React.BaseSyntheticEvent): void => {
+    e.target.src = DEFAULT_POSTER_URL;
+  };
+
   return (
     <CardListItemWrapper>
       <CardImageBlock
@@ -59,7 +66,11 @@ export const CardListItem: FC<CardListItemProps> = ({
           toggleShowPanel={toggleShowPanel}
         />
         <Link to={`/movie/${id}`}>
-          <CardImage src={poster_path} alt="image" />
+          <CardImage
+            src={poster_path || DEFAULT_POSTER_URL}
+            alt="image"
+            onError={onErrorImgHandler}
+          />
         </Link>
       </CardImageBlock>
       <CardTitle>
