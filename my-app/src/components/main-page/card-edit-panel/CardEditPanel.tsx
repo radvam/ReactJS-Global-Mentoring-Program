@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useMemo, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import { Modal } from "../../common/modal/Modal";
@@ -33,6 +33,10 @@ export const CardEditPanel: FC<CardEditPanelProps> = ({
   toggleShowPanel,
   saveSelectedMovie,
 }): React.ReactElement => {
+  useEffect(() => {
+    console.log(getFormEditInitialValues);
+  });
+
   const history = useHistory();
   const [openEditModal, setOpenEditModal] = useState(false);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
@@ -45,14 +49,17 @@ export const CardEditPanel: FC<CardEditPanelProps> = ({
     genres,
     runtime,
   } = card;
-  const FormEditInitialValue = {
-    title,
-    release_date,
-    poster_path,
-    overview,
-    genres,
-    runtime: runtime || 90,
-  };
+
+  const getFormEditInitialValues = useMemo(() => {
+    return {
+      title,
+      release_date,
+      poster_path,
+      overview,
+      genres,
+      runtime: runtime || 90,
+    };
+  }, [title, release_date, poster_path, overview, genres, runtime]);
 
   const onClickEditHandler = (): void => {
     setOpenEditModal(true);
@@ -83,7 +90,7 @@ export const CardEditPanel: FC<CardEditPanelProps> = ({
           resetButtonText={MODAL_EDIT_BUTTON_RESET}
           submitButtonText={MODAL_EDIT_BUTTON_SUBMIT}
           setOpenModal={setOpenEditModal}
-          formInitialValues={FormEditInitialValue}
+          formInitialValues={getFormEditInitialValues}
         />
       </Modal>
       <Modal
