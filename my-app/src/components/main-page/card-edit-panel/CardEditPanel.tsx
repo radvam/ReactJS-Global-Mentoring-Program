@@ -1,4 +1,4 @@
-import React, { FC, useState, useMemo, useEffect } from "react";
+import React, { FC, useState, useMemo } from "react";
 import { useHistory } from "react-router-dom";
 
 import { Modal } from "../../common/modal/Modal";
@@ -33,10 +33,6 @@ export const CardEditPanel: FC<CardEditPanelProps> = ({
   toggleShowPanel,
   saveSelectedMovie,
 }): React.ReactElement => {
-  useEffect(() => {
-    console.log(getFormEditInitialValues);
-  });
-
   const history = useHistory();
   const [openEditModal, setOpenEditModal] = useState(false);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);

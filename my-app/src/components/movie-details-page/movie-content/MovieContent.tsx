@@ -31,7 +31,6 @@ export const MovieContent: FC<MovieContentProps> = ({
   const overview = movie?.overview;
   const release_date = movie?.release_date;
   const runtime = movie?.runtime;
-  console.log(runtime);
 
   const movieRealiseDate = useMemo(() => release_date?.slice(0, 4), [
     release_date,
