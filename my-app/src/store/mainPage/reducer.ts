@@ -108,6 +108,12 @@ export const mainPageReducer = (
         movieForm: {},
       };
     }
+    case actionTypes.SAVE_SEARCH_PARAMS: {
+      return {
+        ...state,
+        searchParams: action.params,
+      };
+    }
     default: {
       return state;
     }

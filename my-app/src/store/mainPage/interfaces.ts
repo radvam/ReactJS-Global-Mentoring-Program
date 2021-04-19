@@ -1,5 +1,5 @@
 import * as actionTypes from "./actionTypes";
-import { Movie } from "./state";
+import { Movie, SearchQuery } from "./state";
 
 export interface RequestMoviesStart {
   type: typeof actionTypes.REQUEST_MOVIES_START;
@@ -79,6 +79,11 @@ export interface ResetMovieForm {
   type: typeof actionTypes.RESET_MOVIE_FORM;
 }
 
+export interface SaveSearchParams {
+  type: typeof actionTypes.SAVE_SEARCH_PARAMS;
+  params: SearchQuery;
+}
+
 export type MainPageActionsTypes =
   | RequestMoviesStart
   | RequestMoviesError
@@ -94,5 +99,5 @@ export type MainPageActionsTypes =
   | SetFormOverview
   | SetFormRuntime
   | ResetMovieForm
-  | SaveSelectedMovie;
-  
+  | SaveSelectedMovie
+  | SaveSearchParams;

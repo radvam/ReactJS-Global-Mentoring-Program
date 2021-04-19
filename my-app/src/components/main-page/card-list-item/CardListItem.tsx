@@ -65,7 +65,7 @@ export const CardListItem: FC<CardListItemProps> = ({
           showPanel={showPanel}
           toggleShowPanel={toggleShowPanel}
         />
-        <Link to={`/movie/${id}`}>
+        <Link to={`/film/${id}`}>
           <CardImage
             src={poster_path || DEFAULT_POSTER_URL}
             alt="image"

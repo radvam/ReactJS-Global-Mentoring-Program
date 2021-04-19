@@ -1,12 +1,15 @@
 import React, { FC } from "react";
-import { Link } from "react-router-dom";
+
+import { NotFoundHeader } from "../../components/not-found-page/not-found-header/NotFoundHeader";
+import { Footer } from "../../components/main-page/footer/Footer";
+import { NotFoundContent } from "../../components/not-found-page/not-found-content/NotFoundContent";
 
 import { NotFoundPageWrapper } from "./NotFoundPage.style";
 
 export const NotFoundPage: FC = (): React.ReactElement => (
   <NotFoundPageWrapper>
-    <h1>Page Not Found</h1>
-    <h2>404</h2>
-    <Link to="/">GO BACK TO HOME</Link>
+    <NotFoundHeader />
+    <NotFoundContent />
+    <Footer />
   </NotFoundPageWrapper>
 );

@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { useHistory } from "react-router-dom";
 
 import { refreshPage } from "./utils/ContentNotFoundUtils";
 
@@ -11,19 +12,26 @@ import { ContentNotFoundProps } from "./ContentNotFound.interface";
 
 import {
   ContentNotFoundWrapper,
-  ContentNotFoundText,
+  NotFoundText,
   RefreshButton,
 } from "./ContentNotFound.style";
 
 export const ContentNotFound: FC<ContentNotFoundProps> = ({
   loading,
 }): React.ReactElement => {
+  const history = useHistory();
+
+  const onClickHandler = (): void => {
+    history.push("/");
+    refreshPage();
+  };
+
   return (
     <ContentNotFoundWrapper>
       {!loading && (
         <>
-          <ContentNotFoundText>{NO_MOVIE_FOUND}</ContentNotFoundText>
-          <RefreshButton onClick={refreshPage}>
+          <NotFoundText>{NO_MOVIE_FOUND}</NotFoundText>
+          <RefreshButton onClick={onClickHandler}>
             {REFRESH_BUTTON_NAME}
           </RefreshButton>
         </>

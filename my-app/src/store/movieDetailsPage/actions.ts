@@ -14,7 +14,9 @@ export const requestMovieStart = (): interfaces.RequestMovieStart => ({
   type: actionTypes.REQUEST_MOVIE_START,
 });
 
-export const requestMovieError = (error: string): interfaces.RequestMovieError => ({
+export const requestMovieError = (
+  error: string
+): interfaces.RequestMovieError => ({
   type: actionTypes.REQUEST_MOVIE_ERROR,
   error,
 });
@@ -40,3 +42,7 @@ export const getMovieDataRequest = (id: number) => (
       dispatch(requestMovieError(error));
     });
 };
+
+export const resetMovieDetailsPageState = (): interfaces.ResetMovieDetailsPageState => ({
+  type: actionTypes.RESET_MOVIE_DETAILS_PAGE_STATE,
+});

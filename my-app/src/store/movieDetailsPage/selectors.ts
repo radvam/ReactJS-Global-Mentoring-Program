@@ -10,8 +10,15 @@ export const getMovieDataSelector = createSelector(
 );
 
 const getMovieLoading = (state: AppState): boolean =>
-  state.mainPage.moviesLoading;
+  state.movieDetailsPage.movieLoading;
 export const getMovieLoadingSelector = createSelector(
   getMovieLoading,
+  (value) => value
+);
+
+const getMovieError = (state: AppState): string =>
+  state.movieDetailsPage.movieError;
+export const getMovieErrorSelector = createSelector(
+  getMovieError,
   (value) => value
 );

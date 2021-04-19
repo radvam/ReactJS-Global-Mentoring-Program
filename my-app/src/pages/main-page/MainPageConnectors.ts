@@ -25,6 +25,7 @@ import {
   postMovieRequest,
   saveSelectedMovie,
   putMovieRequest,
+  saveSearchParams,
 } from "../../store/mainPage/actions";
 
 export const MainContentConnected = connect(
@@ -37,6 +38,7 @@ export const MainContentConnected = connect(
   }),
   {
     getMoviesDataRequest,
+    saveSearchParams,
   }
 )(MainContent);
 

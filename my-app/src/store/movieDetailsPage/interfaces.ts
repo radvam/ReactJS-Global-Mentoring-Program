@@ -15,7 +15,12 @@ export interface RecordMovieDataToStore {
   movieData: Movie;
 }
 
+export interface ResetMovieDetailsPageState {
+  type: typeof actionTypes.RESET_MOVIE_DETAILS_PAGE_STATE;
+}
+
 export type MovieDetailsPageActionsTypes =
   | RequestMovieStart
   | RequestMovieError
-  | RecordMovieDataToStore;
+  | RecordMovieDataToStore
+  | ResetMovieDetailsPageState;

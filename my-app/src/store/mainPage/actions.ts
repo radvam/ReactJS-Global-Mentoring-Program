@@ -18,10 +18,10 @@ import {
   ERROR_DELETE_MESSAGE,
 } from "../../constants/mainPageConstants";
 
-import { gerSelectedMovieSelector } from "./selectors";
+import { gerSelectedMovieSelector, gerSearchParamsSelector } from "./selectors";
 import { getMovieDataRequest } from "../movieDetailsPage/actions";
 
-import { Movie, MovieForm } from "./state";
+import { Movie, MovieForm, SearchQuery } from "./state";
 import { AppState } from "../appState";
 
 import { getMovies, delMovie, addMovie, editMovie } from "./services";
@@ -54,10 +54,13 @@ export const getMoviesDataRequest = (
   dispatch(requestMoviesStart());
 
   const navBarParams = prepareParamsObject(getState().mainPage);
+  const search = gerSearchParamsSelector(getState());
 
   const searchParams = {
     limit: 12,
     ...navBarParams,
+    searchBy: "title",
+    ...search,
     ...params,
   };
 
@@ -185,4 +188,11 @@ export const saveSelectedMovie = (
 ): interfaces.SaveSelectedMovie => ({
   type: actionTypes.SAVE_SELECTED_MOVIE,
   movie,
+});
+
+export const saveSearchParams = (
+  params: SearchQuery
+): interfaces.SaveSearchParams => ({
+  type: actionTypes.SAVE_SEARCH_PARAMS,
+  params,
 });

@@ -15,7 +15,8 @@ import "./App.css";
 const Layout = (): React.ReactElement => (
   <Switch>
     <Route exact path="/" component={MainPage} />
-    <Route path="/movie/:slugId" component={MovieDetailsPage} />
+    <Route exact path="/search" component={MainPage} />
+    <Route path="/film/:slugId" component={MovieDetailsPage} />
     <Route path={"*"} component={NotFoundPage} />
   </Switch>
 );

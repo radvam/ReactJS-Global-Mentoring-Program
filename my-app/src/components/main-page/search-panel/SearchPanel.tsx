@@ -1,4 +1,5 @@
 import React, { useState, FC } from "react";
+import { useHistory } from "react-router-dom";
 
 import {
   SEARCH_PANEL_BUTTON_NAME,
@@ -19,6 +20,7 @@ import {
 export const SearchPanel: FC<SearchPanelProps> = ({
   getMoviesDataRequest,
 }): React.ReactElement => {
+  const history = useHistory();
   const [value, setValue] = useState("");
 
   const searchPanelInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,7 +29,14 @@ export const SearchPanel: FC<SearchPanelProps> = ({
 
   const searchPanelButtonHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    getMoviesDataRequest({ search: value, searchBy: "title" });
+
+    if (value) {
+      history.push(`/search?search=${value}`);
+    } else {
+      history.push("/");
+    }
+
+    getMoviesDataRequest({ search: value });
   };
 
   return (

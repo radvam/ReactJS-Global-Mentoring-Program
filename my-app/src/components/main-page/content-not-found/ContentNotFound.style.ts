@@ -1,4 +1,5 @@
 import { styled, theme } from "../../../theme";
+import { ButtonSecondary } from "../../../components/common/Button/Button.style";
 
 export const ContentNotFoundWrapper = styled.div`
   display: flex;
@@ -9,9 +10,9 @@ export const ContentNotFoundWrapper = styled.div`
   min-height: 180px;
 `;
 
-export const ContentNotFoundText = styled.p`
+export const NotFoundText = styled.p`
   font-family: "Lato-Light", sans-serif;
-  font-size: 42px;
+  font-size: 38px;
   letter-spacing: 0.5px;
   color: ${theme.colors.white};
   margin: 0;
@@ -19,21 +20,6 @@ export const ContentNotFoundText = styled.p`
   margin: 0;
 `;
 
-export const RefreshButton = styled.button`
-  font-family: "Lato-Regular", sans-serif;
-  width: fit-content;
-  padding: 0 15px 0 15px;
-  height: 40px;
-  background-color: ${theme.mainColor};
-  color: ${theme.colors.white};
-  font-size: 22px;
-  border-radius: 4px;
-  letter-spacing: 0.7px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${theme.mainColor + theme.transparency["85"]};
-  }
+export const RefreshButton = styled(ButtonSecondary)`
+  width: 110px;
 `;

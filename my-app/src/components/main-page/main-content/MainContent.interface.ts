@@ -1,4 +1,5 @@
 import { Movie } from "../../../store/mainPage/state";
+import { SearchQuery } from "../../../store/mainPage/state";
 
 export interface MainContentProps {
   getMoviesDataRequest: (
@@ -9,4 +10,5 @@ export interface MainContentProps {
   filterValue: string;
   sortValue: string;
   sortOrder: boolean;
+  saveSearchParams: (params: SearchQuery) => void;
 }

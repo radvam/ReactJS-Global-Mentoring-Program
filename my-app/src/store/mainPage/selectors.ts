@@ -40,9 +40,14 @@ export const getMovieFormSelector = createSelector(
   (value) => value
 );
 
-const gerSelectedMovie = (state: AppState) =>
-  state.mainPage.selectedMovie;
+const gerSelectedMovie = (state: AppState) => state.mainPage.selectedMovie;
 export const gerSelectedMovieSelector = createSelector(
   gerSelectedMovie,
+  (value) => value
+);
+
+const gerSearchParams = (state: AppState) => state.mainPage.searchParams;
+export const gerSearchParamsSelector = createSelector(
+  gerSearchParams,
   (value) => value
 );

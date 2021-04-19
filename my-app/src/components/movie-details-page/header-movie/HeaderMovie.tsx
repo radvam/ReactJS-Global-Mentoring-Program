@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import { Logo } from "../../common/logo/Logo";
 import { MovieContentConnected } from "../../../pages/movie-details-page/MovieDetailsPageConnectors";
@@ -17,10 +17,19 @@ export const HeaderMovie: FC<HeaderMovieProps> = ({
   getMovieDataRequest,
   resetMainPageState,
   slugId,
+  movieError,
+  resetMovieDetailsPageState,
 }): React.ReactElement => {
+  const history = useHistory();
   useEffect(() => {
-    getMovieDataRequest(slugId);
-  }, [getMovieDataRequest, slugId]);
+    (async () => {
+      await getMovieDataRequest(slugId);
+      if (movieError) {
+        history.push("/*");
+        resetMovieDetailsPageState();
+      }
+    })();
+  }, [getMovieDataRequest, slugId, movieError]);
 
   return (
     <HeaderMovieWrapper>

@@ -46,6 +46,11 @@ export const movieDetailsPageReducer = (
         movieLoading: false,
       };
     }
+    case actionTypes.RESET_MOVIE_DETAILS_PAGE_STATE: {
+      return {
+        ...movieDetailsPageInitialState,
+      };
+    }
     default: {
       return state;
     }

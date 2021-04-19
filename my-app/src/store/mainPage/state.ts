@@ -22,6 +22,10 @@ export interface MovieForm {
   runtime: number;
 }
 
+export interface SearchQuery {
+  [name: string]: string | boolean | number;
+}
+
 export interface MainPageState {
   moviesLoading: boolean;
   moviesError: string;
