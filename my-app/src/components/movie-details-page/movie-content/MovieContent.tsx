@@ -46,11 +46,7 @@ export const MovieContent: FC<MovieContentProps> = ({
     <Spin spinning={movieLoading} indicator={<Spinner />}>
       <MovieContentWrapper>
         <PosterBlock>
-          <PosterImage
-            src={poster_path || DEFAULT_POSTER_URL}
-            alt="poster"
-            onError={onErrorImgHandler}
-          />
+          <PosterImage src={poster_path || DEFAULT_POSTER_URL} alt="poster" />
         </PosterBlock>
         <DescriptionBlock>
           <MovieHeader>
