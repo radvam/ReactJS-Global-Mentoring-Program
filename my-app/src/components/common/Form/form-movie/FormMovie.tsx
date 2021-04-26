@@ -43,7 +43,7 @@ export const FormMovie: FC<FormMovieProps> = ({
     },
   });
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form data-testid="form" onSubmit={formik.handleSubmit}>
       <FormMovieWrapper>
         {id && (
           <FormItem>
@@ -57,6 +57,7 @@ export const FormMovie: FC<FormMovieProps> = ({
             <Error>{formik.errors.title}</Error>
           )}
           <input
+            data-testid="title"
             type="text"
             name="title"
             onChange={formik.handleChange}
@@ -104,8 +105,10 @@ export const FormMovie: FC<FormMovieProps> = ({
             value={formik.values.genres}
             multiple
           >
-            {genresData.map(({ value }) => (
-              <option value={value}>{value}</option>
+            {genresData.map(({ value, id }) => (
+              <option value={value} key={id}>
+                {value}
+              </option>
             ))}
           </select>
         </FormItem>
@@ -138,10 +141,19 @@ export const FormMovie: FC<FormMovieProps> = ({
           />
         </FormItem>
         <ButtonGroup>
-          <Reset type="reset" onClick={formik.handleReset}>
+          <Reset
+            type="reset"
+            onClick={formik.handleReset}
+            name="reset"
+            data-testid="reset"
+          >
             {resetButtonText}
           </Reset>
-          <Submit type="submit" disabled={formik.isSubmitting}>
+          <Submit
+            type="submit"
+            disabled={formik.isSubmitting}
+            data-testid="submit"
+          >
             {submitButtonText}
           </Submit>
         </ButtonGroup>
