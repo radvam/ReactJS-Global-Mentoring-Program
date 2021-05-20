@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieContent should render 1`] = `
+<DocumentFragment>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="sc-gsTCUz kxBEbM"
+      >
+        <div
+          class="sc-dlfnbm kpgvUO"
+        >
+          <img
+            alt="poster"
+            class="sc-hKgILt lnGJJi"
+            src="https://image.tmdb.org/t/p/w500/ePyN2nX9t8SOl70eRW47Q29zUFO.jpg"
+          />
+        </div>
+        <div
+          class="sc-eCssSg fKOyAQ"
+        >
+          <div
+            class="sc-jSgupP zOCup"
+          >
+            <p
+              class="sc-gKsewC eTlXqI"
+            >
+              Tomb Raider
+            </p>
+            <div
+              class="sc-iBPRYJ hXeVrs"
+            >
+              6.2
+            </div>
+          </div>
+          <p
+            class="sc-fubCfw gHjKuM"
+          >
+            Her legend begins
+          </p>
+          <div
+            class="sc-pFZIQ dyicPg"
+          >
+            <p
+              class="sc-jrAGrp"
+            >
+              2018
+            </p>
+            <p
+              class="sc-kEjbxe"
+            >
+              118 min
+            </p>
+          </div>
+          <p
+            class="sc-fubCfw sc-iqHYGH gHjKuM dxLnJ"
+          >
+            Lara Croft, the fiercely independent daughter of a missing adventurer, must push herself beyond her limits when she finds herself on the island where her father disappeared.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

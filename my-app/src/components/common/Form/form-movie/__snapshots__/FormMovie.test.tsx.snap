@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormMovie: should initialize 1`] = `
+<DocumentFragment>
+  <form
+    data-testid="form"
+  >
+    <div
+      class="sc-bdfBwQ dtwnJa"
+    >
+      <div
+        class="sc-gsTCUz hFmoFt"
+      >
+        <p
+          class="sc-dlfnbm icrUWe"
+        >
+          Title
+        </p>
+        <input
+          data-testid="title"
+          name="title"
+          placeholder="Title here"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="sc-gsTCUz hFmoFt"
+      >
+        <p
+          class="sc-dlfnbm icrUWe"
+        >
+          Release Date
+        </p>
+        <input
+          name="release_date"
+          type="date"
+          value=""
+        />
+      </div>
+      <div
+        class="sc-gsTCUz hFmoFt"
+      >
+        <p
+          class="sc-dlfnbm icrUWe"
+        >
+          Movie Url
+        </p>
+        <input
+          name="poster_path"
+          placeholder="Movie URL here"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="sc-gsTCUz hFmoFt"
+      >
+        <p
+          class="sc-dlfnbm icrUWe"
+        >
+          Genre
+        </p>
+        <select
+          multiple=""
+          name="genres"
+        >
+          <option
+            value="Crime"
+          >
+            Crime
+          </option>
+          <option
+            value="Documentary"
+          >
+            Documentary
+          </option>
+          <option
+            value="Horror"
+          >
+            Horror
+          </option>
+          <option
+            value="Comedy"
+          >
+            Comedy
+          </option>
+          <option
+            value="Fantasy"
+          >
+            Fantasy
+          </option>
+          <option
+            value="Animation"
+          >
+            Animation
+          </option>
+          <option
+            value="Family"
+          >
+            Family
+          </option>
+          <option
+            value="Science Fiction"
+          >
+            Science Fiction
+          </option>
+          <option
+            value="Action"
+          >
+            Action
+          </option>
+          <option
+            value="Drama"
+          >
+            Drama
+          </option>
+          <option
+            value="Romance"
+          >
+            Romance
+          </option>
+          <option
+            value="Thriller"
+          >
+            Thriller
+          </option>
+          <option
+            value="Adventure"
+          >
+            Adventure
+          </option>
+          <option
+            value="History"
+          >
+            History
+          </option>
+          <option
+            value="Mystery"
+          >
+            Mystery
+          </option>
+          <option
+            value="Music"
+          >
+            Music
+          </option>
+          <option
+            value="War"
+          >
+            War
+          </option>
+        </select>
+      </div>
+      <div
+        class="sc-gsTCUz hFmoFt"
+      >
+        <p
+          class="sc-dlfnbm icrUWe"
+        >
+          Overview
+        </p>
+        <input
+          name="overview"
+          placeholder="Overview here"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="sc-gsTCUz hFmoFt"
+      >
+        <p
+          class="sc-dlfnbm icrUWe"
+        >
+          Runtime
+        </p>
+        <input
+          min="0"
+          name="runtime"
+          type="number"
+          value="0"
+        />
+      </div>
+      <div
+        class="sc-eCssSg jIHwOa"
+      >
+        <button
+          class="sc-jSgupP sc-gKsewC jWwiRE iwWjtp"
+          data-testid="reset"
+          name="reset"
+          type="reset"
+        >
+          Reset
+        </button>
+        <button
+          class="sc-jSgupP jWwiRE"
+          data-testid="submit"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+</DocumentFragment>
+`;
