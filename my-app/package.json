@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/preset-react": "^7.13.13",
+    "@babel/register": "^7.13.16",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.7.4",
@@ -11,6 +13,9 @@
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
     "@types/react-redux": "^7.1.11",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "ignore-styles": "^5.0.1",
     "antd": "^4.13.1",
     "axios": "^0.21.1",
     "formik": "^2.2.6",
@@ -31,6 +36,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "ssr": "node server/index.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
